@@ -404,7 +404,7 @@ if (document.getElementsByClassName('error').length !== 0) {
 } else if (document.getElementById('appli_name') !== null) {
   console.log('agree_1!');
   document.getElementById('agree_1').checked = true;
-  // document.getElementById('btn_reservation').click();
+  document.getElementById('btn_reservation').click();
 } else if (document.getElementById('input_memid') !== null) {
   console.log('login');
   document.getElementById('input_memid').value = 'mazda';
