@@ -1,14 +1,15 @@
 {
   "name": "alphaTanTen",
   "description": "A Chrome Extension to make reservation of the tennis court",
-  "version": "2",
+  "version": "2.2",
   "manifest_version": 2,
   "web_accessible_resources": ["alphatanten.js"],
   "content_scripts": [
     {
       "matches": [
         "http://sports.isdc.co.kr/member/login",
-        "http://sports.isdc.co.kr/rent/*",
+        "http://sports.isdc.co.kr/rent/reservation/index/*",
+        "http://sports.isdc.co.kr/rent/inputform",
         "http://time.navyism.com/?host=sports.isdc.co.kr",
         "http://sports.isdc.co.kr/message"
       ],

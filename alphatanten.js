@@ -11,7 +11,8 @@ var resvTime = '06시 59분 59초';
 // get URL
 var today = new Date();
 var dd = today.getDate();
-var dr = dd + 3;
+today.setDate(dd + 3);
+var dr = today.getDate();
 var mm = today.getMonth() + 1; //January is 0!
 
 if (dd < 10) {
@@ -41,6 +42,24 @@ if (document.getElementsByClassName('error').length !== 0) {
   }
 } else if (realpersonclasscollection.length !== 0) {
   console.log('real person hack');
+
+  var disablerFunction = function() {
+    window.alert = function alert(msg) {
+      console.log('Hidden Alert ' + msg);
+    };
+    window.confirm = function confirm(msg) {
+      console.log('Hidden Confirm ' + msg);
+      return true; /*simulates user clicking yes*/
+    };
+  };
+
+  var disablerCode = '(' + disablerFunction.toString() + ')();';
+
+  var disablerScriptElement = document.createElement('script');
+  disablerScriptElement.textContent = disablerCode;
+
+  document.documentElement.appendChild(disablerScriptElement);
+  disablerScriptElement.parentNode.removeChild(disablerScriptElement);
 
   let lettera = [
     [' ', ' ', ' ', '*', ' ', ' ', ' '],
@@ -413,6 +432,14 @@ if (document.getElementsByClassName('error').length !== 0) {
   setTimeout(function() {
     location.href = 'http://time.navyism.com/?host=sports.isdc.co.kr';
   }, 100);
+} else if (document.getElementsByClassName('message').length !== 0) {
+  console.log('error screen');
+  if (
+    document.getElementsByTagName('p')[0].innerHTML ==
+    '신청시간 필드가 필요합니다.'
+  ) {
+    location.href = 'https://www.google.co.kr/search?q=%EC%A2%86%EB%90%90&';
+  }
 } else {
   console.log('timer');
 
@@ -428,7 +455,7 @@ if (document.getElementsByClassName('error').length !== 0) {
       clearInterval(resvTimer);
       location.href = resvURL;
     }
-  }, 10);
+  }, 300);
 
   console.log('login timer activated: ', loginTime);
   console.log('reservation timer activated: ', resvTime);
