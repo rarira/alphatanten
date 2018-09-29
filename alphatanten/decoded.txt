@@ -1,0 +1,412 @@
+var up_index = 0;
+var down_index = 0;
+var i = 0;
+var receipt_time = ;
+var select_group_sport = Y;
+var max_rent_time = 0;
+var min_rent_time = 0;
+var s_time = ;
+var e_time = ;
+var n_s_time = ;
+var n_e_time = ;
+var p_s_time = ;
+var p_e_time = ;
+var _0xdfb4c = ;
+var _0xdfb4e = 0;
+var _0xdfb4f = 0;
+var _0xdfb50 = ;
+var _0xdfb51 = ;
+var _0xdfb48 = f;
+var _0xdfb53 = 0;
+var disabled = Y;
+$(document)[ready](function() {
+  var _0xf307x16 = jQuery[noConflict]();
+  _0xf307x16(.realperson-text)[realperson]({
+    length: 7,
+    regenerate: 변경,
+    dot: *,
+  });
+  $(.realperson-challenge)[click](function() {
+    $(#defaultReal)[val]();
+  });
+  $(#btn_realperson)[click](function(_0xf307x17) {
+    _0xf307x17[preventDefault]();
+    var _0xf307x18 = $(#baseURL)[val]() + /inc/jquery-person/jquery.realperson.php;
+    var _0xf307x19 = _0xf307x16(.is-realperson)[realperson](getHash);
+    var _0xf307x1a = $(#defaultReal)[val]();
+    var _0xf307x1b = $(#revcd)[val]();
+    jQuery[ajax]({
+      url: _0xf307x18,
+      cache: false,
+      type: post,
+      async: true,
+      data: { value: _0xf307x1a, sendhash: _0xf307x19, rvalue: _0xf307x1b },
+      dataType: json,
+      success: function(_0xf307x1c) {
+        alert(_0xf307x1c[msg]);
+        if (_0xf307x1c[stat] == goodday) {
+          _0xf307x16(.is-realperson)[realperson](disable);
+          _0xf307x16(#btn_realperson)[css](visibility, hidden);
+        }
+        _0xdfb48 = _0xf307x1c[stat];
+      },
+    });
+  });
+  $(.category_li_over)[click](function() {
+    document[location][href] = $(this)
+      [children](a)
+      [attr](href);
+  });
+  $(.category_li_out)[click](function() {
+    document[location][href] = $(this)
+      [children](a)
+      [attr](href);
+  });
+  var _0xf307x1d = $(#baseURL)[val]();
+  var _0xf307x1e = $(#baseSSL)[val]();
+  var _0xf307x1f = $(#comcd)[val]();
+  var _0xf307x20 = $(#partcd)[val]();
+  var _0xf307x21 = $(#placecd)[val]();
+  var _0xf307x22 = $(#is_list)[val]();
+  var _0xf307x23 = $(#category_index)[val]();
+  var _0xf307x24 = $(#receipt_date)[val]();
+  $(.calendar_table td)[each](function(_0xf307x25) {
+    var _0xf307x26 = $(this)
+      [find](span:eq(0))
+      [text]();
+    var _0xf307x27 = $(this)
+      [find](span:eq(1))
+      [text]();
+    var _0xf307x28 = $(this)
+      [find](span:eq(2))
+      [text]();
+    if (_0xf307x27 < 10 && _0xf307x27[length] == 1) {
+      _0xf307x27 = 0 + _0xf307x27;
+    }
+    if (_0xf307x28 < 10 && _0xf307x28[length] == 1) {
+      _0xf307x28 = 0 + _0xf307x28;
+    }
+    $(this)[mouseover](function() {
+      $(this)
+        [css](background-color, yellow)
+        [click](function() {
+          location[href] =
+            _0xf307x1d +
+            /rent/reservation/index/ +
+            _0xf307x26 +
+            / +
+            _0xf307x27 +
+            / +
+            _0xf307x28 +
+            / +
+            _0xf307x22 +
+            / +
+            _0xf307x1f +
+            / +
+            _0xf307x20 +
+            / +
+            _0xf307x21;
+        });
+    });
+    $(this)[mouseout](function() {
+      if ($(this)[attr](class) == week_holiday) {
+        $(this)[css](background-color, #FFEDED);
+      } else {
+        var _0xf307x29 = yellow;
+        if (
+          _0xf307x25 % 7 == 0 &&
+          _0xf307x24 != _0xf307x26 + _0xf307x27 + _0xf307x28
+        ) {
+          _0xf307x29 = #FFEDED;
+        } else {
+          if (
+            _0xf307x25 % 7 == 6 &&
+            _0xf307x24 != _0xf307x26 + _0xf307x27 + _0xf307x28
+          ) {
+            _0xf307x29 = #E8E9FF;
+          } else {
+            if (_0xf307x24 != _0xf307x26 + _0xf307x27 + _0xf307x28) {
+              _0xf307x29 = white;
+            }
+          }
+        }
+        $(this)[css](background-color, _0xf307x29);
+      }
+    });
+  });
+  tyear = $(#year)[val]();
+  tmonth = $(#month)[val]();
+  trev_day = $(#rev_day)[val]();
+  $(#select_group_sport)[click](function() {
+    location[href] =
+      _0xf307x1d +
+      /rent/reservation/index/ +
+      tyear +
+      / +
+      tmonth +
+      / +
+      trev_day +
+      / +
+      _0xf307x22 +
+      / +
+      _0xf307x1f +
+      / +
+      _0xf307x20 +
+      / +
+      _0xf307x21 +
+      /Y;
+  });
+  $(#select_group_notsport)[click](function() {
+    location[href] =
+      _0xf307x1d +
+      /rent/reservation/index/ +
+      tyear +
+      / +
+      tmonth +
+      / +
+      trev_day +
+      / +
+      _0xf307x22 +
+      / +
+      _0xf307x1f +
+      / +
+      _0xf307x20 +
+      / +
+      _0xf307x21 +
+      /N;
+  });
+  max_rent_time = $(#max_rent_time)[val]();
+  min_rent_time = $(#sports_etime_1)[val]() - $(#sports_stime_1)[val]();
+  if (max_rent_time == 0 && min_rent_time == 0) {
+    max_rent_time = $(#select_cnt)[val]();
+    min_rent_time = $(#sports_etime_1)[val]() - $(#sports_stime_1)[val]();
+  }
+  $(.select_check)[each](function(_0xf307x25) {
+    _0xf307x25 = _0xf307x25 + 1;
+    if ($(#reservation_stime)[val]() != ) {
+      s_time = $(#sports_stime_ + _0xf307x25)[val]();
+      e_time = $(#sports_etime_ + _0xf307x25)[val]();
+      for (i = 1; i <= $(#select_cnt)[val](); i++) {
+        if (
+          $(#reservation_stime)[val]() == s_time &&
+          $(#reservation_etime)[val]() == e_time
+        ) {
+          $(#select_ + _0xf307x25)[attr](checked, true);
+        } else {
+          $(#select_ + _0xf307x25)[attr](disabled, true);
+        }
+      }
+    }
+    $(this)[click](function() {
+      _0xdfb4f = 0;
+      up_index = _0xf307x25 + 1;
+      down_index = _0xf307x25 - 1;
+      s_time = $(#sports_stime_ + _0xf307x25)[val]();
+      e_time = $(#sports_etime_ + _0xf307x25)[val]();
+      n_s_time = $(#sports_stime_ + up_index)[val]();
+      n_e_time = $(#sports_etime_ + up_index)[val]();
+      p_s_time = $(#sports_stime_ + down_index)[val]();
+      p_e_time = $(#sports_etime_ + down_index)[val]();
+      _0xdfb4c = parseInt(e_time - s_time);
+      min_rent_time = parseInt(e_time - s_time);
+      $(.select_check)[each](function(_0xf307x25) {
+        _0xdfb4e += 1;
+      });
+      for (i = 1; i <= $(#select_cnt)[val](); i++) {
+        if ($(#select_ + i)[is](:checked) == true) {
+          _0xdfb4f = _0xdfb4f + 1;
+        }
+        if (_0xdfb4e < _0xdfb4f) {
+          disabled = N;
+          alert(최대 대관이용시간을 초과하였습니다.);
+          return false;
+        }
+        if (_0xdfb4c < min_rent_time) {
+          if (i != _0xf307x25 && i != up_index) {
+            $(#select_ + i)[attr](disabled, true);
+          } else {
+            $(#select_ + up_index)[attr](checked, true);
+          }
+        } else {
+          if (_0xdfb4c == min_rent_time && max_rent_time == _0xdfb4c) {
+            if (i != _0xf307x25) {
+              $(#select_ + i)[attr](disabled, true);
+            }
+          } else {
+            if (disabled == Y) {
+              if ($(#select_ + up_index)[is](:checked)) {
+                if (
+                  $(#select_ + down_index)[attr](type) !=
+                  hidden
+                ) {
+                  $(#select_ + down_index)[attr](disabled, false);
+                }
+              } else {
+                if ($(#select_ + down_index)[is](:checked)) {
+                  if (
+                    $(#select_ + up_index)[attr](type) !=
+                    hidden
+                  ) {
+                    $(#select_ + up_index)[attr](disabled, false);
+                  }
+                } else {
+                  if (i != _0xf307x25 && i != up_index && i != down_index) {
+                    $(#select_ + i)[attr](disabled, true);
+                  } else {
+                    if (
+                      $(#select_ + i)[attr](type) !=
+                      hidden
+                    ) {
+                      $(#select_ + i)[attr](disabled, false);
+                    } else {
+                      $(#select_ + i)[attr](disabled, true);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        if (!$(this)[is](:checked)) {
+          $(#select_ + i)[attr](checked, false);
+          $(#select_ + i)[attr](disabled, false);
+          _0xdfb4f = 0;
+          disabled = Y;
+        }
+      }
+    });
+  });
+  $(.select_check_events)[each](function(_0xf307x25) {
+    _0xf307x25 = _0xf307x25 + 1;
+    if ($(#reservation_stime)[val]() != ) {
+      s_time = $(#events_stime_ + _0xf307x25)[val]();
+      e_time = $(#events_etime_ + _0xf307x25)[val]();
+      for (i = 1; i <= $(#select_cnt)[val](); i++) {
+        if (
+          $(#reservation_stime)[val]() == s_time &&
+          $(#reservation_etime)[val]() == e_time
+        ) {
+          $(#select_events_ + _0xf307x25)[attr](checked, true);
+        } else {
+          $(#select_events_ + _0xf307x25)[attr](disabled, true);
+        }
+      }
+    }
+    $(this)[click](function() {
+      _0xdfb4f = 0;
+      up_index = _0xf307x25 + 1;
+      down_index = _0xf307x25 - 1;
+      s_time = $(#events_stime_ + _0xf307x25)[val]();
+      e_time = $(#events_etime_ + _0xf307x25)[val]();
+      n_s_time = $(#events_stime_ + up_index)[val]();
+      n_e_time = $(#events_etime_ + up_index)[val]();
+      p_s_time = $(#events_stime_ + down_index)[val]();
+      p_e_time = $(#events_etime_ + down_index)[val]();
+      _0xdfb4c = e_time - s_time;
+      min_rent_time = parseInt(e_time - s_time);
+      $(.select_check_events)[each](function(_0xf307x25) {
+        _0xdfb4e += 1;
+      });
+      for (i = 1; i <= $(#select_cnt)[val](); i++) {
+        if ($(#select_events_ + i)[is](:checked) == true) {
+          _0xdfb4f = _0xdfb4f + 1;
+        }
+        if (_0xdfb4e < _0xdfb4f) {
+          disabled = N;
+          alert(최대 대관이용시간을 초과하였습니다.);
+          return false;
+        }
+        if (_0xdfb4c < min_rent_time) {
+          if (i != _0xf307x25 && i != up_index) {
+            $(#select_events_ + i)[attr](disabled, true);
+          } else {
+            $(#select_events_ + up_index)[attr](checked, true);
+          }
+        } else {
+          if (_0xdfb4c == min_rent_time && max_rent_time == _0xdfb4c) {
+            if (i != _0xf307x25) {
+              $(#select_events_ + i)[attr](disabled, true);
+            }
+          } else {
+            if (disabled == Y) {
+              if ($(#select_events_ + up_index)[is](:checked)) {
+                if (
+                  $(#select_events_ + down_index)[attr](type) !=
+                  hidden
+                ) {
+                  $(#select_events_ + down_index)[attr](disabled, false);
+                }
+              } else {
+                if ($(#select_events_ + down_index)[is](:checked)) {
+                  if (
+                    $(#select_events_ + up_index)[attr](type) !=
+                    hidden
+                  ) {
+                    $(#select_events_ + up_index)[attr](disabled, false);
+                  }
+                } else {
+                  if (i != _0xf307x25 && i != up_index && i != down_index) {
+                    $(#select_events_ + i)[attr](disabled, true);
+                  } else {
+                    if (
+                      $(#select_events_ + i)[attr](type) !=
+                      hidden
+                    ) {
+                      $(#select_events_ + i)[attr](disabled, false);
+                    } else {
+                      $(#select_events_ + i)[attr](disabled, true);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        if (!$(this)[is](:checked)) {
+          $(#select_events_ + i)[attr](checked, false);
+          $(#select_events_ + i)[attr](disabled, false);
+          _0xdfb4f = 0;
+        }
+      }
+    });
+  });
+  $(#reservation_form)[submit](function() {
+    jQuery(#basecd)[val](basecd01);
+    if (_0xf307x1f == SIMC01 && _0xf307x20 == 07) {
+      if (_0xdfb48 != goodday) {
+        alert(자동입력방지 문자가 인증되지 않았습니다. 문자입력후 확인버튼을 눌러주세요.);
+        $(#defaultReal)[focus]();
+        return false;
+      }
+      for (i = 1; i <= $(#select_cnt)[val](); i++) {
+        if ($(#select_ + i)[is](:checked) == true) {
+          _0xdfb4f = _0xdfb4f + 1;
+        }
+        if ($(#select_events_ + i)[is](:checked) == true) {
+          _0xdfb4f = _0xdfb4f + 1;
+        }
+      }
+    } else {
+      for (i = 1; i <= $(#select_cnt)[val](); i++) {
+        if ($(#select_ + i)[is](:checked) == true) {
+          _0xdfb4f = _0xdfb4f + 1;
+        }
+        if ($(#select_events_ + i)[is](:checked) == true) {
+          _0xdfb4f = _0xdfb4f + 1;
+        }
+      }
+      _0xdfb50 = _0xdfb4f * min_rent_time;
+      if ($(#min_rent_time)[val]() > _0xdfb50) {
+        alert(
+          예약가능한 최소시간은  +
+            $(#min_rent_time)[val]() +
+            시간 입니다. +
+            _0xdfb4f +
+             /  +
+            _0xdfb50
+        );
+        return false;
+      }
+    }
+  });
+});

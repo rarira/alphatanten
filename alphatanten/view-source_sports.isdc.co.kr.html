@@ -1,0 +1,739 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="cache-control" content="no-store" />
+
+  <title>
+    성남도시개발공사 - 인터넷예약시스템  </title>
+
+  <link rel="stylesheet" type="text/css" href="/css/template/isdc/common.css" />
+  <link rel="stylesheet" type="text/css" href="/css/center/isdc/main.css" />
+
+  <script type="text/javascript" src="/inc/jquery.min.js"></script>
+  <script type="text/javascript" src="/inc/main2.js"></script>
+  <script type="text/javascript" src="/inc/template/isdc/header.js"></script>
+  <script type="text/javascript">
+  <!--
+window.open( 'http://sports.isdc.co.kr/popup/index/SNWOMEN/POPUP/1828/0', 'POPUP0', 'status=yes, menubar=no, scrollbars=auto, resizable=no, width=400, height=480, left=440, top=0' );
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30659300-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  //-->
+  </script>
+</head>
+
+<body>
+  <h1 class="blind">성남도시개발공사</h1>
+
+  <div id="skip">
+    <h2 class="title">사이트 바로가기</h2>
+    <ul>
+      <li><a rel="bookmark" href="#wrap" title="상단메뉴 바로가기">상단메뉴바로가기</a></li>
+        <li>
+          <dl>
+            <dt><a rel="bookmark" href="#contentsMain" title="본문영역 바로가기">본문영역 바로가기</a></dt>
+            <dd>
+              <ul>
+                <li><a rel="bookmark" href="#service01" title="시설/숙박예약서비스">영인산 휴양림 예약서비스</a></li>
+                <li><a rel="bookmark" href="#service02" title="교육/강좌예약서비스">평색학습관 예약서비스</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </li>
+      <li><a rel="bookmark" href="#reserveM" title="강좌,시설예약 검색">강좌,시설예약 검색</a></li>
+      <li><a rel="bookmark" href="#recommendM" title="강좌안내바로가기">강좌안내바로가기</a></li>
+      <li><a rel="bookmark" href="#newsM" title="공지사항 바로가기">공지사항 바로가기</a></li>
+      <li><a rel="bookmark" href="#footer" title="하단메뉴 바로가기">하단메뉴 바로가기</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapAll">
+    <div id="wrap">
+
+      <!-- top //-->
+      <hr />
+
+<div id="header">
+  <h1>
+    <a href="http://sports.isdc.co.kr" title="성남도시개발공사 홈으로 이동">
+      <img src="/images/center/isdc/logo.gif" style="vertical-align:middle" alt="성남도시개발공사" />&nbsp;
+      <img src="/images/center/isdc/head_title.gif" style="vertical-align:middle;margin-top:3px;" alt="통합예약시스템" />
+    </a>
+  </h1>
+
+  <div id="tnb">
+    <h2 class="blind">상단메뉴</h2>
+
+    <ul class="tnb_ul">
+      <li class="tnb_li" style="padding-top:0px !important;">
+      	<form action="/main/link" target="_TOP" method="post">
+      	<select name="link">
+      		<option value="http://www.isdc.co.kr">성남도시개발공사</option>
+      		<option value="http://www.2ssc.or.kr">탄천종합운동장</option>
+      		<option value="http://www.hi-sns.or.kr/">성남종합운동장</option>
+      		<option value="http://www.hi-sns.or.kr/facility/14_snwomen.php">평생학습관 스포츠센터</option>
+      		<option value="http://pgs.2ssc.or.kr/">판교스포츠센터</option>
+      	</select>
+      	<input type="image" src="/images/btn/btn_go.gif" style="" alt="go" title="새창에서 열기" />
+      	</form>
+      </li>
+      <li class="tnb_li"><a href="http://sports.isdc.co.kr/member/logout">로그아웃</a></li>
+      <li class="tnb_li"><a href="http://sports.isdc.co.kr/member/modify">회원정보관리</a></li>
+      <li class="tnb_li"><a href="http://sports.isdc.co.kr/service/sitemap">사이트맵</a></li>
+      <li class="tnb_li">
+        <span id="tnb_li_fontplus" title="사이트 보기 배율 확대">
+          <img src="/images/layout/btn_zoomin.gif" alt="+확대" />
+        </span>
+        <span id="tnb_li_fontminus" title="사이트 보기 배율 축소">
+          <img src="/images/layout/btn_zoomout.gif" alt="-축소" />
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- gnb //-->
+  <div id="gnb">
+    <ul>
+    	
+      <li class="mainmenu">
+        <!-- a href="/rent/application" class="menu" title="시설예약서비스"-->
+        <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" class="menu" title="시설예약서비스">
+          <img src="/images/template/isdc/gnb_menu_03.gif" alt="시설예약" />
+        </a>
+        <div class="gnbSub">
+<ul>            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">
+                  <!-- a href="" style="word-break:break-word;" title="탄천종합운동장 시설예약 바로가기"-->
+                  <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" style="word-break:break-word;" title="탄천종합운동장 시설예약 바로가기">
+                    탄천종합운동장                  </a>
+                  <!-- input type="hidden" id="top_link_url" value="" /-->
+                  <input type="hidden" id="top_link_url" value="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" />
+                </dt>
+                <dd>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" title="테니스장 시설예약 바로가기">테니스장</a>
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">
+                  <!-- a href="" style="word-break:break-word;" title="성남종합운동장 시설예약 바로가기"-->
+                  <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" style="word-break:break-word;" title="성남종합운동장 시설예약 바로가기">
+                    성남종합운동장                  </a>
+                  <!-- input type="hidden" id="top_link_url" value="" /-->
+                  <input type="hidden" id="top_link_url" value="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" />
+                </dt>
+                <dd>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/01" title="인조잔디축구장 시설예약 바로가기">인조잔디축구장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/02" title="황송공원 인조잔디축구장 시설예약 바로가기">황송공원 인조잔디축구장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/03" title="풋살장 시설예약 바로가기">풋살장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/04" title="탄천변축구장 A 시설예약 바로가기">탄천변축구장 A</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/05" title="주경기장 시설예약 바로가기">주경기장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/07" title="실내체육관 시설예약 바로가기">실내체육관</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/08" title="탄천변축구장 B 시설예약 바로가기">탄천변축구장 B</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/10" title="상대원 유소년 축구장 시설예약 바로가기">상대원 유소년 축구장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/11" title="양지 배수지내 축구장 시설예약 바로가기">양지 배수지내 축구장</a>
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">
+                  <!-- a href="" style="word-break:break-word;" title="성남시 평생학습관 스포츠센터 시설예약 바로가기"-->
+                  <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" style="word-break:break-word;" title="성남시 평생학습관 스포츠센터 시설예약 바로가기">
+                    성남시 평생학습관 스포츠센터                  </a>
+                  <!-- input type="hidden" id="top_link_url" value="" /-->
+                  <input type="hidden" id="top_link_url" value="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" />
+                </dt>
+                <dd>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SNWOMEN/05" title="체  육  관 시설예약 바로가기">체  육  관</a>
+                </dd>
+              </dl>
+            </li>
+</ul>        </div>
+      </li>
+
+      <li class="mainmenu">
+        <a href="#" title="교육/강좌 예약서비스" class="menu">
+          <img src="/images/template/isdc/gnb_menu_02.gif" alt="교육/강좌" />
+        </a>
+<div class="gnbSub"><ul>          
+            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">	<!-- 2018.01.11 요청자 : 김상환 - 링크주소 변경요청    -->
+                  <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100001/1/2/3/4/5/6/7/1/-/-/1/1" style="word-break:break-word;" title="탄천종합운동장 강좌예약 바로가기">탄천종합운동장</a>
+                </dt>
+                <dd>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100001/1/2/3/4/5/6/7/1/-/-/1/1" title="수영[06시 예약 바로가기">수영[06시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100002/1/2/3/4/5/6/7/1/-/-/1/1" title="07시 예약 바로가기">07시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100003/1/2/3/4/5/6/7/1/-/-/1/1" title="08시 예약 바로가기">08시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100004/1/2/3/4/5/6/7/1/-/-/1/1" title="09시 예약 바로가기">09시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100005/1/2/3/4/5/6/7/1/-/-/1/1" title="10시 예약 바로가기">10시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100006/1/2/3/4/5/6/7/1/-/-/1/1" title="11시 예약 바로가기">11시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100007/1/2/3/4/5/6/7/1/-/-/1/1" title="15시] 예약 바로가기">15시]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100008/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이 [17시,18시] 예약 바로가기">어린이 [17시,18시]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100012/1/2/3/4/5/6/7/1/-/-/1/1" title="수영[18시 예약 바로가기">수영[18시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100013/1/2/3/4/5/6/7/1/-/-/1/1" title="19시 예약 바로가기">19시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100014/1/2/3/4/5/6/7/1/-/-/1/1" title="20시 예약 바로가기">20시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100016/1/2/3/4/5/6/7/1/-/-/1/1" title="월자유] 예약 바로가기">월자유]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/101001/1/2/3/4/5/6/7/1/-/-/1/1" title="아쿠아로빅 예약 바로가기">아쿠아로빅</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/101002/1/2/3/4/5/6/7/1/-/-/1/1" title="수중운동 예약 바로가기">수중운동</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/103014/1/2/3/4/5/6/7/1/-/-/1/1" title="골프 예약 바로가기">골프</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/104001/1/2/3/4/5/6/7/1/-/-/1/1" title="스케이트[스피드 예약 바로가기">스케이트[스피드</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/104002/1/2/3/4/5/6/7/1/-/-/1/1" title="피겨 예약 바로가기">피겨</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/104003/1/2/3/4/5/6/7/1/-/-/1/1" title="개인강습] 예약 바로가기">개인강습]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/105001/1/2/3/4/5/6/7/1/-/-/1/1" title="스쿼시[성인 예약 바로가기">스쿼시[성인</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/105002/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이,청소년] 예약 바로가기">어린이,청소년]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/105011/1/2/3/4/5/6/7/1/-/-/1/1" title="월자유[스쿼시 예약 바로가기">월자유[스쿼시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/105012/1/2/3/4/5/6/7/1/-/-/1/1" title="라켓볼] 예약 바로가기">라켓볼]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106001/1/2/3/4/5/6/7/1/-/-/1/1" title="검도 예약 바로가기">검도</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106002/1/2/3/4/5/6/7/1/-/-/1/1" title="관절운동 예약 바로가기">관절운동</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106003/1/2/3/4/5/6/7/1/-/-/1/1" title="K팝-방송댄스 예약 바로가기">K팝-방송댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106004/1/2/3/4/5/6/7/1/-/-/1/1" title="댄스스포츠(오전) 예약 바로가기">댄스스포츠(오전)</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106005/1/2/3/4/5/6/7/1/-/-/1/1" title="벨리댄스 예약 바로가기">벨리댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106006/1/2/3/4/5/6/7/1/-/-/1/1" title="살사댄스 예약 바로가기">살사댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106008/1/2/3/4/5/6/7/1/-/-/1/1" title="에어로빅 예약 바로가기">에어로빅</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106009/1/2/3/4/5/6/7/1/-/-/1/1" title="재즈댄스 예약 바로가기">재즈댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106010/1/2/3/4/5/6/7/1/-/-/1/1" title="필라테스 예약 바로가기">필라테스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106011/1/2/3/4/5/6/7/1/-/-/1/1" title="한국무용 예약 바로가기">한국무용</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/107001/1/2/3/4/5/6/7/1/-/-/1/1" title="헬스 예약 바로가기">헬스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108002/1/2/3/4/5/6/7/1/-/-/1/1" title="라인댄스 예약 바로가기">라인댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108003/1/2/3/4/5/6/7/1/-/-/1/1" title="배드민턴 예약 바로가기">배드민턴</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108004/1/2/3/4/5/6/7/1/-/-/1/1" title="성장체조 예약 바로가기">성장체조</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108005/1/2/3/4/5/6/7/1/-/-/1/1" title="농구[성인 예약 바로가기">농구[성인</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108006/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이,청소년] 예약 바로가기">어린이,청소년]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/110001/1/2/3/4/5/6/7/1/-/-/1/1" title="요가 예약 바로가기">요가</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/111001/1/2/3/4/5/6/7/1/-/-/1/1" title="여성건강교실 예약 바로가기">여성건강교실</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/112001/1/2/3/4/5/6/7/1/-/-/1/1" title="탁구 예약 바로가기">탁구</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/112008/1/2/3/4/5/6/7/1/-/-/1/1" title="라지볼 예약 바로가기">라지볼</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/113001/1/2/3/4/5/6/7/1/-/-/1/1" title="테니스[성인 예약 바로가기">테니스[성인</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/113006/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이,청소년] 예약 바로가기">어린이,청소년]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/115001/1/2/3/4/5/6/7/1/-/-/1/1" title="댄스스포츠(오후) 예약 바로가기">댄스스포츠(오후)</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/115002/1/2/3/4/5/6/7/1/-/-/1/1" title="국선도 예약 바로가기">국선도</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/115003/1/2/3/4/5/6/7/1/-/-/1/1" title="스트레칭 예약 바로가기">스트레칭</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/115004/1/2/3/4/5/6/7/1/-/-/1/1" title="성장댄스 예약 바로가기">성장댄스</a>
+                </dd>
+              </dl>
+            </li>
+          
+            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">	<!-- 2018.01.11 요청자 : 김상환 - 링크주소 변경요청    -->
+                  <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100001/1/2/3/4/5/6/7/1/-/-/1/1" style="word-break:break-word;" title="성남시 평생학습관 스포츠센터 강좌예약 바로가기">성남시 평생학습관 스포츠센터</a>
+                </dt>
+                <dd>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100001/1/2/3/4/5/6/7/1/-/-/1/1" title="주 3회 프로그램 예약 바로가기">주 3회 프로그램</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100002/1/2/3/4/5/6/7/1/-/-/1/1" title="주 6회 프로그램 예약 바로가기">주 6회 프로그램</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100003/1/2/3/4/5/6/7/1/-/-/1/1" title="아쿠아로빅 예약 바로가기">아쿠아로빅</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100004/1/2/3/4/5/6/7/1/-/-/1/1" title="자유 수영 예약 바로가기">자유 수영</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100005/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이수영 예약 바로가기">어린이수영</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100006/1/2/3/4/5/6/7/1/-/-/1/1" title="유아수영 예약 바로가기">유아수영</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/101001/1/2/3/4/5/6/7/1/-/-/1/1" title="헬 스 예약 바로가기">헬 스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102001/1/2/3/4/5/6/7/1/-/-/1/1" title="요가교실 예약 바로가기">요가교실</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102002/1/2/3/4/5/6/7/1/-/-/1/1" title="에어로빅 예약 바로가기">에어로빅</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102003/1/2/3/4/5/6/7/1/-/-/1/1" title="댄스스포츠 예약 바로가기">댄스스포츠</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102004/1/2/3/4/5/6/7/1/-/-/1/1" title="밸리댄스 예약 바로가기">밸리댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102005/1/2/3/4/5/6/7/1/-/-/1/1" title="농 구 예약 바로가기">농 구</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102006/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이성장체조 예약 바로가기">어린이성장체조</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/103002/1/2/3/4/5/6/7/1/-/-/1/1" title="기타 예약 바로가기">기타</a>
+                </dd>
+              </dl>
+            </li>
+</ul></div>
+      </li>
+      
+<!-- 160216 김상환주사 요청으로 메뉴 가림 -->
+		<!--
+<li class="mainmenu">
+<!--			<a href="/ticket/llist/index" title="겨울레포츠" class="menu">-->
+    			<!--<a href="/ticket/llist/guide/1" title="겨울레포츠" class="menu">
+				<img src="/images/template/isdc/gnb_menu_08.gif" alt="겨울레포츠" />
+			</a>
+<div class="gnbSub"><ul>
+			<li>
+			<dl>
+			<dt style="width:115px;padding-right:5px;">
+			<a href="http://sports.isdc.co.kr/ticket/llist/guide/1" style="word-break:break-word;" title="탄천종합운동장 매표예약 바로가기">
+야외스케이트장			</a>
+			</dt>
+			<dd>
+						<a href="http://sports.isdc.co.kr/ticket/llist/guide/1/17" title="스쿼시장 예약 바로가기">스쿼시장</a>
+			</dd>
+			</dl>
+			</li>
+
+			<li>
+			<dl>
+			<dt style="width:115px;padding-right:5px;">
+			<a href="http://sports.isdc.co.kr/ticket/llist/guide/2" style="word-break:break-word;" title="성남종합운동장 매표예약 바로가기">
+눈썰매장			</a>
+			</dt>
+			<dd>
+						<a href="http://sports.isdc.co.kr/ticket/llist/guide/2/09" title="눈썰매장 예약 바로가기">눈썰매장</a>
+			</dd>
+			</dl>
+			</li>
+</ul></div></li>-->
+
+<!--// 겨울레포츠 메뉴-->
+
+
+      <li class="mainmenu">
+        <a href="http://sports.isdc.co.kr/news/board/llist/notice" title="고객센터 공지사항으로 이동" class="menu">
+          <img src="/images/template/isdc/gnb_menu_04.gif" alt="고객센터" />
+        </a>
+      </li>
+
+      <li class="mainmenu_last gnbMy">
+        <a href="http://sports.isdc.co.kr/mypage/llist/index" title="마이페이지로 이동" class="menu_last">
+          <img src="/images/template/isdc/gnb_menu_05.gif" alt="마이페이지" />
+        </a>
+        <div class="gnbSub_last">
+          <ul>
+            <li>
+              <dl>
+                <dt><a href="http://sports.isdc.co.kr/mypage/llist/index" title="교육/강좌로 이동">교육/강좌</a></dt>
+                <dd>
+                  <a href="http://sports.isdc.co.kr/mypage/llist/index" title="신청현황(장바구니)으로 이동">신청현황(장바구니)</a>
+                  <a href="http://sports.isdc.co.kr/mypage/history/index" title="수강이력현황으로 이동">수강이력현황</a>
+                  <a href="http://sports.isdc.co.kr/mypage/refundlist/index" title="환불신청현황으로 이동">환불신청현황</a>
+                  <a href="http://sports.isdc.co.kr/mypage/locker/index">사물함현황/재신청</a>
+                  
+                  <script>console.log('180929');</script>                        <a href="http://sports.isdc.co.kr/mypage/locker/newrent">사물함신청</a>
+                                    
+                  
+                </dd>
+              </dl>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <dl>
+                <dt><a href="http://sports.isdc.co.kr/mypage/rlist/index" title="시설예약으로 이동">시설예약</a></dt>
+                <dd>
+                  <a href="http://sports.isdc.co.kr/mypage/rlist/index" title="시설예약신청현황으로 이동">시설예약신청현황</a>
+                  <a href="http://sports.isdc.co.kr/mypage/rhistlist/index" title="시설예약이력현황으로 이동">시설예약이력현황</a>
+                  <a href="http://sports.isdc.co.kr/mypage/rrefundlist/index" title="환불신청현황으로 이동">환불신청현황</a>
+                </dd>
+              </dl>
+            </li>
+          </ul>
+                  </div>
+      </li>
+    </ul>
+  </div>
+
+  <!--// gnb -->
+</div>
+      <!--// top -->
+
+      <hr />
+
+      <div id="wrapOut">
+        <div id="wrapIn">
+          <div id="contentsMain">
+            <h2 class="blind">본문영역</h2>
+            <div class="upperMain">
+              <div class="serviceM">
+
+                <div class="top_main_img">
+                  <ul class="btn_main">
+                    <li class="btn_main01_on" id="btn_main01"><p class="btn_img"></p></li>
+                    <li class="btn_main02" id="btn_main02"><p class="btn_img"></p></li>
+                    <li class="btn_main03" id="btn_main03"><p class="btn_img"></p></li>
+                    <li>
+                    	<img src="/images/center/isdc/main/btn_mainback.gif" alt="빈공간" id="btn_main_bar">
+                  	</li>
+                  </ul>
+
+                  <ul class="btn_main_back">
+                    <li class="main_img">
+                      <img src="/images/center/isdc/main/isdc02.jpg" alt="성남탄천운동장" />
+                    </li>
+                    <li class="main_img">
+                      <img src="/images/center/isdc/main/isdc01.jpg" alt="성남종합운동장" />
+                    </li>
+                    <li class="main_img">
+                      <img src="/images/center/isdc/main/isdc03.jpg" alt="여성문화회관 스포츠센터" />
+                    </li>
+                  </ul>
+
+                  <div class="quickmenu_div">
+                    <h3 class="blind">
+                      Quick Service 바로가기메뉴
+                    </h3>
+
+                    <h4 class="blind">
+                      문의전화 : 051-271-2576~7
+                      Quick Service 바로가기메뉴 - 바로가기메뉴로 편리하게 이용하세요
+                    </h4>
+
+                    <div class="quickmenu_position1">
+                      <ul class="main_quick">
+                        <li><a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01" id="quick_lecture" target="_TOP" title="새창으로 수강신청">수강신청</a></li>
+                        <li><a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01" id="quick_rent">시설예약</a></li>
+                        <li><a href="http://sports.isdc.co.kr/guide/rent/index/SIMC01/01" id="quick_guide">시설안내</a></li>
+                        <li><a href="http://sports.isdc.co.kr/service/searchroad/SIMC01/1001" id="quick_location">찾아오시는길</a></li>
+                        <li><a href="http://sports.isdc.co.kr/mypage/rlist/index" id="quick_mypage">신청현황</a></li>
+                      </ul>
+                    </div>
+                    <div class="quickmenu_position2">
+                      <ul class="main_quick">
+                        <li><a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02" id="quick_rent">시설예약</a></li>
+                        <li><a href="http://www.hi-sns.or.kr/receipt/" id="quick_lecture" target="_BLANK" title="새창으로 수강신청">수강신청</a></li>
+                        <li><a href="http://sports.isdc.co.kr/guide/rent/index/SIMC02/01" id="quick_guide">시설안내</a></li>
+                        <!-- <li><a href="http://sports.isdc.co.kr/news/board/llist/notice/" id="quick_customer">고객센터</a></li> -->
+                        <li><a href="http://sports.isdc.co.kr/service/searchroad/SIMC02/1001" id="quick_location">찾아오시는길</a></li>
+                        <li><a href="http://sports.isdc.co.kr/mypage/rlist/index" id="quick_mypage">신청현황</a></li>
+                      </ul>
+                    </div>
+                    <div class="quickmenu_position3">
+                      <ul class="main_quick">
+                        <li><a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN" id="quick_lecture">수강신청</a></li>
+                        <li><a href="http://sports.isdc.co.kr/lecture/guide/index/SNWOMEN/" id="quick_lecture_guide">수강안내</a></li>
+                        <li><a href="http://sports.isdc.co.kr/news/board/llist/notice/" id="quick_customer">고객센터</a></li>
+                        <li><a href="http://sports.isdc.co.kr/service/searchroad/SNWOMEN/1001" id="quick_location">찾아오시는길</a></li>
+                        <li><a href="http://sports.isdc.co.kr/mypage/llist/index" id="quick_mypage">신청현황</a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="reserveM" id="reserveM">
+                <iframe src="/main/search/1" id="main_search" width="278" height="285" scrolling="no" frameborder="0" title="강좌예약과 시설예약을 할 수 있는 통합검색 시스템입니다"></iframe>
+              </div>
+            </div>
+
+            <div class="lowerMain">
+              <div class="recommendM" id="recommendM">
+                <h3>
+                  <img src="/images/center/isdc/main/tit_recommend.gif" class="tit" alt="강좌안내" />
+                  &nbsp;&nbsp;<span class="bold">탄천종합운동장</span> > 골프연습장[기간수료제] > 골프 > <span class="color_dark_orange bold">17시(강습/월자유 등)</span>                  <a href="/lecture/llist/index/SIMC01/2001/L/1030140011/1/2/3/4/5/6/7/1/-/-/1/1" title="강좌안내 더보기" class="more"><img src="/images/center/isdc/main/txt_more.gif" alt="더보기" /></a>
+                </h3>
+
+                <div class="lecture">
+                  <dl class="next">
+                    <dt>
+                      <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000389" class="thum" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                        [17시] 골프 강습(월~토)                      </a>
+                    </dt>
+                    <dd>
+                      <div style="text-align:center;">
+                        <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000389" class="thum" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                          <img src="/file_upload_a/isdc/classes/af46ca2e6f30dda8ceb85ef4950b8aa7.jpg" class="lecture_image" alt="[17시] 골프 강습(월~토) 강좌 이미지입니다" style="width:140px;height:100px;" />                        </a>
+
+                        <ul>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000389" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              <span class="weekday_str">
+                                월화수목금토                              </span>
+                            </a>
+                             /
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000389" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              <span class="time_str">
+                                17:00~17:50                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000389" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              성인                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000389" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              12개월 / 1,440,000(원)
+                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000389" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              2018-09-01~2018-09-30                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="next">
+                    <dt>
+                      <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000386" class="thum" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                        [17시] 골프 강습(월~토)                      </a>
+                    </dt>
+                    <dd>
+                      <div style="text-align:center;">
+                        <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000386" class="thum" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                          <img src="/file_upload_a/isdc/classes/af46ca2e6f30dda8ceb85ef4950b8aa7.jpg" class="lecture_image" alt="[17시] 골프 강습(월~토) 강좌 이미지입니다" style="width:140px;height:100px;" />                        </a>
+
+                        <ul>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000386" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              <span class="weekday_str">
+                                월화수목금토                              </span>
+                            </a>
+                             /
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000386" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              <span class="time_str">
+                                17:00~17:50                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000386" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              성인                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000386" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              1개월 / 120,000(원)
+                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000386" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              2018-09-01~2018-09-30                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="next">
+                    <dt>
+                      <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000387" class="thum" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                        [17시] 골프 강습(월~토)                      </a>
+                    </dt>
+                    <dd>
+                      <div style="text-align:center;">
+                        <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000387" class="thum" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                          <img src="/file_upload_a/isdc/classes/af46ca2e6f30dda8ceb85ef4950b8aa7.jpg" class="lecture_image" alt="[17시] 골프 강습(월~토) 강좌 이미지입니다" style="width:140px;height:100px;" />                        </a>
+
+                        <ul>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000387" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              <span class="weekday_str">
+                                월화수목금토                              </span>
+                            </a>
+                             /
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000387" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              <span class="time_str">
+                                17:00~17:50                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000387" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              성인                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000387" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              3개월 / 360,000(원)
+                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000387" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              2018-09-01~2018-09-30                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="next">
+                    <dt>
+                      <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000388" class="thum" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                        [17시] 골프 강습(월~토)                      </a>
+                    </dt>
+                    <dd>
+                      <div style="text-align:center;">
+                        <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000388" class="thum" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                          <img src="/file_upload_a/isdc/classes/af46ca2e6f30dda8ceb85ef4950b8aa7.jpg" class="lecture_image" alt="[17시] 골프 강습(월~토) 강좌 이미지입니다" style="width:140px;height:100px;" />                        </a>
+
+                        <ul>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000388" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              <span class="weekday_str">
+                                월화수목금토                              </span>
+                            </a>
+                             /
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000388" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              <span class="time_str">
+                                17:00~17:50                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000388" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              성인                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000388" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              6개월 / 720,000(원)
+                            </a>
+                          </li>
+                          <li>
+                            <a href="http://sports.isdc.co.kr/lecture/detail/index/SIMC01/2001/00017/I000388" title="[17시] 골프 강습(월~토) 강좌 상세페이지 링크">
+                              2018-09-01~2018-09-30                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </dd>
+                  </dl>
+
+                </div>
+              </div>
+
+
+              <div class="newsM" id="newsM">
+                <h3>
+                  <img src="/images/center/isdc/main/tit_news.gif" class="tit" alt="공지사항" />
+                  <a href="http://sports.isdc.co.kr/news/board/llist/notice" class="more" title="공지사항 더보기">
+                    <img src="/images/center/isdc/main/txt_more.gif" alt="더보기" />
+                  </a>
+                </h3>
+
+                <ul>
+                  <li>
+                    <a href="http://sports.isdc.co.kr/news/board/view/notice/SNWOMEN/9843/0" title="평생학습관스포츠센터 9월 휴일운영 안내문 이동">
+                      평생학습관스포츠센터 9월 휴일운영 ...                    </a>
+                  </li>
+                  <li>
+                    <a href="http://sports.isdc.co.kr/news/board/view/notice/SNWOMEN/9722/0" title="평생학습관 스포츠센터 9월 수영장 휴장안내 이동">
+                      평생학습관 스포츠센터 9월 수영장 휴...                    </a>
+                  </li>
+                  <li>
+                    <a href="http://sports.isdc.co.kr/news/board/view/notice/SNWOMEN/9684/0" title="평생학습관스포츠센터 8월 휴일운영 안내문 이동">
+                      평생학습관스포츠센터 8월 휴일운영 ...                    </a>
+                  </li>
+                  <li>
+                    <a href="http://sports.isdc.co.kr/news/board/view/notice/SIMC02/9682/0" title="9월중 인조잔디구장 행사일정 이동">
+                      9월중 인조잔디구장 행사일정                    </a>
+                  </li>
+                </ul>
+
+                <br/>
+
+                <div id="content_popupzone">
+                  <h3 class="popupzone_title">팝업존 ㅣ popupzone</h3>
+                  <ul>
+<li class="popupzone_tab_out" id="number_popupzone_0">0</li>                  </ul>
+                  <input type="hidden" id="popuplist_count" value="1" />
+<div class="image_popupzone_0" style="display:none"><img src="http://sports.isdc.co.kr/file_upload_a/isdc/images/2018/08/99efec7345878a32153ca60fe9613a85.gif" alt="" /></div>                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- footer //-->
+          <hr />
+
+    <div id="globalFooter">
+      <div id="footer_banner">
+        <h4 class="blind">하단 배너</h4>
+
+        <ul>
+          <li id="banner_prev" >
+            이전배너표시
+          </li>
+          <li class="footer_banner_list">
+            <ul style="width:1500px;">
+                <li class="footer_banner_li">
+                  <a href="http://www.sncouncil.go.kr/" target="_blank" title="새 창에서 표시 : 성남시의회" >
+                    <img src="/images/banner/banner_19.gif" class="banner_img" alt="성남시의회" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://www.seongnam.go.kr/" target="_blank" title="새 창에서 표시 : 성남시청" >
+                    <img src="/images/banner/banner_01.gif" class="banner_img" alt="성남시청" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://jw.snlib.net" target="_blank" title="새 창에서 표시 : 성남시 중원도서관" >
+                    <img src="/images/banner/ban_jw.gif" class="banner_img" alt="성남시 중원도서관" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://sj.snlib.go.kr/" target="_blank" title="새 창에서 표시 : 성남시 수정도서관" >
+                    <img src="/images/banner/ban_sj.gif" class="banner_img" alt="성남시 수정도서관" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://www.snventure.net" target="_blank" title="새 창에서 표시 : 성남산업진흥원" >
+                    <img src="/images/banner/banner_21.gif" class="banner_img" alt="성남산업진흥원" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://www.snart.or.kr" target="_blank" title="새 창에서 표시 : 성남문화재단사이트" >
+                    <img src="/images/banner/banner_20.gif" class="banner_img" alt="성남문화재단사이트" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://volunteer.seongnam.go.kr" target="_blank" title="새 창에서 표시 : 내자녀 바로알기 학부모 서비스" >
+                    <img src="/images/banner/banner_17.gif" class="banner_img" alt="내자녀 바로알기 학부모 서비스" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://ct.snlib.net" target="_blank" title="새 창에서 표시 : 성남 중앙도서관" >
+                    <img src="/images/banner/banner_18.gif" class="banner_img" alt="성남 중앙도서관" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://lll.seongnam.go.kr/seongnam/main.do" target="_blank" title="새 창에서 표시 : 성남시 평생학습원" >
+                    <img src="/images/banner/banner_07.gif" class="banner_img" alt="성남시 평생학습원" />
+                  </a>
+                </li>
+            </ul>
+          </li>
+          <li id="banner_next">
+            다음배너 표시
+          </li>
+        </ul>
+        <input type="hidden" id="banner_total_count" value="9" />
+      </div>
+    </div>
+
+    <div id="footer" style="padding-bottom:50px">
+      <h2 class="blind">하단메뉴</h2>
+
+      <div class="policy">
+        <ul>
+          <li><a href="http://sports.isdc.co.kr/service/privacy" title="개인정보취급방침 페이지로 이동" style="color:#cc0000; font-weight:bold">개인정보처리방침</a></li>
+          <li><a href="http://sports.isdc.co.kr/service/service" title="이용약관 페이지로 이동">이용약관</a></li>
+          <li><a href="http://sports.isdc.co.kr/service/email" title="이메일무단수집거부 페이지로 이동">이메일무단수집거부</a></li>
+          <li class="lastBg"><a href="http://sports.isdc.co.kr/service/sitemap" title="사이트맵 페이지로 이동">사이트맵</a></li>
+        </ul>
+      </div>
+
+      <address>
+      주소 : 성남시 분당구 탄천로 215 탄천종합운동장 체육회관 5 본청) 	  &nbsp;  TEL : 
+       
+        <select name="tel_guide">
+        	<option>전화번호를 확인하세요</option>
+        	<option>탄천종합운동장 : ☎031-725-7100</option>
+        	<option>성남종합운동장 : ☎031-754-3100</option>
+        	<option>성남시 평생학습관 스포츠센터 : ☎031-781-1072</option>
+        	<option>판교스포츠센터 : ☎031-724-4660</option>
+        </select>
+       <!--  <br/>사업자번호: 144-82-00548 <span style="color:#ccc"> l</span>  대표자성함: 황호양  --><!--<span style="color:#ccc"> l</span>결제문의: 031-739-6704-->
+        <br />
+        Copyright&copy; 2013 성남도시개발공사 All Rights Reserved.
+        <!--대표자명 : 정옥균&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 137-82-05394&nbsp;&nbsp;&nbsp;&nbsp;<!--개인정보관리책임자 : //-->
+        <a href="http://sports.isdc.co.kr" class="logo" title="홈으로 이동">
+          <img src="/images/center/isdc/logo_footer.gif" alt="성남도시개발공사 로고" />
+        </a>
+      </address>
+    </div>      <!--// footer //-->
+
+    </div> <!-- wrap //-->
+  </div> <!-- wrapAll //-->
+
+</body>
+
+</html>

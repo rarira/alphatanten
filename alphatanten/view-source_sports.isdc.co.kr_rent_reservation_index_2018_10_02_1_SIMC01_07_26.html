@@ -1,0 +1,1014 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="cache-control" content="no-store" />
+
+  <title>
+    성남도시개발공사 - 인터넷예약시스템    > 시설예약 > 시설예약시간현황
+  </title>
+
+  <link rel="stylesheet" type="text/css" href="/css/template/isdc/common.css" />
+  <link rel="stylesheet" type="text/css" href="/css/board_list.css" />
+  <link rel="stylesheet" type="text/css" href="/css/pagination.css" />
+  <link rel="stylesheet" type="text/css" href="/css/template/isdc/rent_reservation.css" />
+  <link rel="stylesheet" type="text/css" href="/css/service/isdc/rent_reservation.css" />
+  <link rel="stylesheet" type="text/css" href="/css/jquery.realperson.css">
+
+  <script type="text/javascript" src="/inc/jquery.min.1.6.4.js" charset="euc-kr"></script>
+
+  <script type="text/javascript" src="/inc/jquery-1.11.0.min.js" charset="euc-kr"></script>
+
+  <script type="text/javascript" src="/inc/jquery-person/jquery.plugin.js"></script>
+  <script type="text/javascript" src="/inc/jquery-person/jquery.realperson.js"></script>
+
+
+  <script type="text/javascript" src="/inc/template/isdc/header.js"></script>
+  <script type="text/javascript" src="/inc/pagination.js"></script>
+  <script type="text/javascript" src="/inc/board_list.js"></script>
+  <script type="text/javascript" src="/inc/rent_reservation.js"></script>
+
+  <script type="text/javascript">
+  <!--
+	//2017-01-02 박찬호 : recaptcha 제거로 인한 스크립트 주석처리---------------------------------------------------------------
+/*
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    */
+ //----------------------------------------------------------------------------------------------------------------------------
+  </script>
+
+</head>
+
+<body>
+  <h1 class="blind">시설예약</h1>
+
+  <div id="skip">
+    <h2 class="title">사이트 바로가기</h2>
+    <ul>
+      <li><a rel="bookmark" href="#wrap" title="상단메뉴 바로가기">상단메뉴 바로가기</a></li>
+      <li><a rel="bookmark" href="#lnb" title="서브메뉴 바로가기">서브메뉴 바로가기</a></li>
+      <li><a rel="bookmark" href="#contents" title="본문영역 바로가기">본문영역 바로가기</a></li>
+      <li><a rel="bookmark" href="#footer" title="하단메뉴 바로가기">하단메뉴 바로가기</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapAll">
+    <div id="wrap">
+
+      <!-- top //-->
+      <hr />
+
+<div id="header">
+  <h1>
+    <a href="http://sports.isdc.co.kr" title="성남도시개발공사 홈으로 이동">
+      <img src="/images/center/isdc/logo.gif" style="vertical-align:middle" alt="성남도시개발공사" />&nbsp;
+      <img src="/images/center/isdc/head_title.gif" style="vertical-align:middle;margin-top:3px;" alt="통합예약시스템" />
+    </a>
+  </h1>
+
+  <div id="tnb">
+    <h2 class="blind">상단메뉴</h2>
+
+    <ul class="tnb_ul">
+      <li class="tnb_li" style="padding-top:0px !important;">
+      	<form action="/main/link" target="_TOP" method="post">
+      	<select name="link">
+      		<option value="http://www.isdc.co.kr">성남도시개발공사</option>
+      		<option value="http://www.2ssc.or.kr">탄천종합운동장</option>
+      		<option value="http://www.hi-sns.or.kr/">성남종합운동장</option>
+      		<option value="http://www.hi-sns.or.kr/facility/14_snwomen.php">평생학습관 스포츠센터</option>
+      		<option value="http://pgs.2ssc.or.kr/">판교스포츠센터</option>
+      	</select>
+      	<input type="image" src="/images/btn/btn_go.gif" style="" alt="go" title="새창에서 열기" />
+      	</form>
+      </li>
+      <li class="tnb_li"><a href="http://sports.isdc.co.kr/member/logout">로그아웃</a></li>
+      <li class="tnb_li"><a href="http://sports.isdc.co.kr/member/modify">회원정보관리</a></li>
+      <li class="tnb_li"><a href="http://sports.isdc.co.kr/service/sitemap">사이트맵</a></li>
+      <li class="tnb_li">
+        <span id="tnb_li_fontplus" title="사이트 보기 배율 확대">
+          <img src="/images/layout/btn_zoomin.gif" alt="+확대" />
+        </span>
+        <span id="tnb_li_fontminus" title="사이트 보기 배율 축소">
+          <img src="/images/layout/btn_zoomout.gif" alt="-축소" />
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- gnb //-->
+  <div id="gnb">
+    <ul>
+    	
+      <li class="mainmenu">
+        <!-- a href="/rent/application" class="menu" title="시설예약서비스"-->
+        <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" class="menu" title="시설예약서비스">
+          <img src="/images/template/isdc/gnb_menu_03.gif" alt="시설예약" />
+        </a>
+        <div class="gnbSub">
+<ul>            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">
+                  <!-- a href="" style="word-break:break-word;" title="탄천종합운동장 시설예약 바로가기"-->
+                  <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" style="word-break:break-word;" title="탄천종합운동장 시설예약 바로가기">
+                    탄천종합운동장                  </a>
+                  <!-- input type="hidden" id="top_link_url" value="" /-->
+                  <input type="hidden" id="top_link_url" value="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" />
+                </dt>
+                <dd>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" title="테니스장 시설예약 바로가기">테니스장</a>
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">
+                  <!-- a href="" style="word-break:break-word;" title="성남종합운동장 시설예약 바로가기"-->
+                  <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" style="word-break:break-word;" title="성남종합운동장 시설예약 바로가기">
+                    성남종합운동장                  </a>
+                  <!-- input type="hidden" id="top_link_url" value="" /-->
+                  <input type="hidden" id="top_link_url" value="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" />
+                </dt>
+                <dd>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/01" title="인조잔디축구장 시설예약 바로가기">인조잔디축구장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/02" title="황송공원 인조잔디축구장 시설예약 바로가기">황송공원 인조잔디축구장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/03" title="풋살장 시설예약 바로가기">풋살장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/04" title="탄천변축구장 A 시설예약 바로가기">탄천변축구장 A</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/05" title="주경기장 시설예약 바로가기">주경기장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/07" title="실내체육관 시설예약 바로가기">실내체육관</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/08" title="탄천변축구장 B 시설예약 바로가기">탄천변축구장 B</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/10" title="상대원 유소년 축구장 시설예약 바로가기">상대원 유소년 축구장</a>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC02/11" title="양지 배수지내 축구장 시설예약 바로가기">양지 배수지내 축구장</a>
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">
+                  <!-- a href="" style="word-break:break-word;" title="성남시 평생학습관 스포츠센터 시설예약 바로가기"-->
+                  <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" style="word-break:break-word;" title="성남시 평생학습관 스포츠센터 시설예약 바로가기">
+                    성남시 평생학습관 스포츠센터                  </a>
+                  <!-- input type="hidden" id="top_link_url" value="" /-->
+                  <input type="hidden" id="top_link_url" value="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SIMC01/07" />
+                </dt>
+                <dd>
+                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/09/29/1/SNWOMEN/05" title="체  육  관 시설예약 바로가기">체  육  관</a>
+                </dd>
+              </dl>
+            </li>
+</ul>        </div>
+      </li>
+
+      <li class="mainmenu">
+        <a href="#" title="교육/강좌 예약서비스" class="menu">
+          <img src="/images/template/isdc/gnb_menu_02.gif" alt="교육/강좌" />
+        </a>
+<div class="gnbSub"><ul>          
+            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">	<!-- 2018.01.11 요청자 : 김상환 - 링크주소 변경요청    -->
+                  <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100001/1/2/3/4/5/6/7/1/-/-/1/1" style="word-break:break-word;" title="탄천종합운동장 강좌예약 바로가기">탄천종합운동장</a>
+                </dt>
+                <dd>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100001/1/2/3/4/5/6/7/1/-/-/1/1" title="수영[06시 예약 바로가기">수영[06시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100002/1/2/3/4/5/6/7/1/-/-/1/1" title="07시 예약 바로가기">07시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100003/1/2/3/4/5/6/7/1/-/-/1/1" title="08시 예약 바로가기">08시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100004/1/2/3/4/5/6/7/1/-/-/1/1" title="09시 예약 바로가기">09시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100005/1/2/3/4/5/6/7/1/-/-/1/1" title="10시 예약 바로가기">10시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100006/1/2/3/4/5/6/7/1/-/-/1/1" title="11시 예약 바로가기">11시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100007/1/2/3/4/5/6/7/1/-/-/1/1" title="15시] 예약 바로가기">15시]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100008/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이 [17시,18시] 예약 바로가기">어린이 [17시,18시]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100012/1/2/3/4/5/6/7/1/-/-/1/1" title="수영[18시 예약 바로가기">수영[18시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100013/1/2/3/4/5/6/7/1/-/-/1/1" title="19시 예약 바로가기">19시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100014/1/2/3/4/5/6/7/1/-/-/1/1" title="20시 예약 바로가기">20시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/100016/1/2/3/4/5/6/7/1/-/-/1/1" title="월자유] 예약 바로가기">월자유]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/101001/1/2/3/4/5/6/7/1/-/-/1/1" title="아쿠아로빅 예약 바로가기">아쿠아로빅</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/101002/1/2/3/4/5/6/7/1/-/-/1/1" title="수중운동 예약 바로가기">수중운동</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/103014/1/2/3/4/5/6/7/1/-/-/1/1" title="골프 예약 바로가기">골프</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/104001/1/2/3/4/5/6/7/1/-/-/1/1" title="스케이트[스피드 예약 바로가기">스케이트[스피드</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/104002/1/2/3/4/5/6/7/1/-/-/1/1" title="피겨 예약 바로가기">피겨</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/104003/1/2/3/4/5/6/7/1/-/-/1/1" title="개인강습] 예약 바로가기">개인강습]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/105001/1/2/3/4/5/6/7/1/-/-/1/1" title="스쿼시[성인 예약 바로가기">스쿼시[성인</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/105002/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이,청소년] 예약 바로가기">어린이,청소년]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/105011/1/2/3/4/5/6/7/1/-/-/1/1" title="월자유[스쿼시 예약 바로가기">월자유[스쿼시</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/105012/1/2/3/4/5/6/7/1/-/-/1/1" title="라켓볼] 예약 바로가기">라켓볼]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106001/1/2/3/4/5/6/7/1/-/-/1/1" title="검도 예약 바로가기">검도</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106002/1/2/3/4/5/6/7/1/-/-/1/1" title="관절운동 예약 바로가기">관절운동</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106003/1/2/3/4/5/6/7/1/-/-/1/1" title="K팝-방송댄스 예약 바로가기">K팝-방송댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106004/1/2/3/4/5/6/7/1/-/-/1/1" title="댄스스포츠(오전) 예약 바로가기">댄스스포츠(오전)</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106005/1/2/3/4/5/6/7/1/-/-/1/1" title="벨리댄스 예약 바로가기">벨리댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106006/1/2/3/4/5/6/7/1/-/-/1/1" title="살사댄스 예약 바로가기">살사댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106008/1/2/3/4/5/6/7/1/-/-/1/1" title="에어로빅 예약 바로가기">에어로빅</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106009/1/2/3/4/5/6/7/1/-/-/1/1" title="재즈댄스 예약 바로가기">재즈댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106010/1/2/3/4/5/6/7/1/-/-/1/1" title="필라테스 예약 바로가기">필라테스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/106011/1/2/3/4/5/6/7/1/-/-/1/1" title="한국무용 예약 바로가기">한국무용</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/107001/1/2/3/4/5/6/7/1/-/-/1/1" title="헬스 예약 바로가기">헬스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108002/1/2/3/4/5/6/7/1/-/-/1/1" title="라인댄스 예약 바로가기">라인댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108003/1/2/3/4/5/6/7/1/-/-/1/1" title="배드민턴 예약 바로가기">배드민턴</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108004/1/2/3/4/5/6/7/1/-/-/1/1" title="성장체조 예약 바로가기">성장체조</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108005/1/2/3/4/5/6/7/1/-/-/1/1" title="농구[성인 예약 바로가기">농구[성인</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/108006/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이,청소년] 예약 바로가기">어린이,청소년]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/110001/1/2/3/4/5/6/7/1/-/-/1/1" title="요가 예약 바로가기">요가</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/111001/1/2/3/4/5/6/7/1/-/-/1/1" title="여성건강교실 예약 바로가기">여성건강교실</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/112001/1/2/3/4/5/6/7/1/-/-/1/1" title="탁구 예약 바로가기">탁구</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/112008/1/2/3/4/5/6/7/1/-/-/1/1" title="라지볼 예약 바로가기">라지볼</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/113001/1/2/3/4/5/6/7/1/-/-/1/1" title="테니스[성인 예약 바로가기">테니스[성인</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/113006/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이,청소년] 예약 바로가기">어린이,청소년]</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/115001/1/2/3/4/5/6/7/1/-/-/1/1" title="댄스스포츠(오후) 예약 바로가기">댄스스포츠(오후)</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/115002/1/2/3/4/5/6/7/1/-/-/1/1" title="국선도 예약 바로가기">국선도</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/115003/1/2/3/4/5/6/7/1/-/-/1/1" title="스트레칭 예약 바로가기">스트레칭</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SIMC01/2001/L/115004/1/2/3/4/5/6/7/1/-/-/1/1" title="성장댄스 예약 바로가기">성장댄스</a>
+                </dd>
+              </dl>
+            </li>
+          
+            <li>
+              <dl>
+                <dt style="width:115px;padding-right:5px;">	<!-- 2018.01.11 요청자 : 김상환 - 링크주소 변경요청    -->
+                  <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100001/1/2/3/4/5/6/7/1/-/-/1/1" style="word-break:break-word;" title="성남시 평생학습관 스포츠센터 강좌예약 바로가기">성남시 평생학습관 스포츠센터</a>
+                </dt>
+                <dd>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100001/1/2/3/4/5/6/7/1/-/-/1/1" title="주 3회 프로그램 예약 바로가기">주 3회 프로그램</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100002/1/2/3/4/5/6/7/1/-/-/1/1" title="주 6회 프로그램 예약 바로가기">주 6회 프로그램</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100003/1/2/3/4/5/6/7/1/-/-/1/1" title="아쿠아로빅 예약 바로가기">아쿠아로빅</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100004/1/2/3/4/5/6/7/1/-/-/1/1" title="자유 수영 예약 바로가기">자유 수영</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100005/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이수영 예약 바로가기">어린이수영</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/100006/1/2/3/4/5/6/7/1/-/-/1/1" title="유아수영 예약 바로가기">유아수영</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/101001/1/2/3/4/5/6/7/1/-/-/1/1" title="헬 스 예약 바로가기">헬 스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102001/1/2/3/4/5/6/7/1/-/-/1/1" title="요가교실 예약 바로가기">요가교실</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102002/1/2/3/4/5/6/7/1/-/-/1/1" title="에어로빅 예약 바로가기">에어로빅</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102003/1/2/3/4/5/6/7/1/-/-/1/1" title="댄스스포츠 예약 바로가기">댄스스포츠</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102004/1/2/3/4/5/6/7/1/-/-/1/1" title="밸리댄스 예약 바로가기">밸리댄스</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102005/1/2/3/4/5/6/7/1/-/-/1/1" title="농 구 예약 바로가기">농 구</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/102006/1/2/3/4/5/6/7/1/-/-/1/1" title="어린이성장체조 예약 바로가기">어린이성장체조</a>
+                    <a href="http://sports.isdc.co.kr/lecture/llist/index/SNWOMEN/2001/L/103002/1/2/3/4/5/6/7/1/-/-/1/1" title="기타 예약 바로가기">기타</a>
+                </dd>
+              </dl>
+            </li>
+</ul></div>
+      </li>
+      
+<!-- 160216 김상환주사 요청으로 메뉴 가림 -->
+		<!--
+<li class="mainmenu">
+<!--			<a href="/ticket/llist/index" title="겨울레포츠" class="menu">-->
+    			<!--<a href="/ticket/llist/guide/1" title="겨울레포츠" class="menu">
+				<img src="/images/template/isdc/gnb_menu_08.gif" alt="겨울레포츠" />
+			</a>
+<div class="gnbSub"><ul>
+			<li>
+			<dl>
+			<dt style="width:115px;padding-right:5px;">
+			<a href="http://sports.isdc.co.kr/ticket/llist/guide/1" style="word-break:break-word;" title="탄천종합운동장 매표예약 바로가기">
+야외스케이트장			</a>
+			</dt>
+			<dd>
+						<a href="http://sports.isdc.co.kr/ticket/llist/guide/1/17" title="스쿼시장 예약 바로가기">스쿼시장</a>
+			</dd>
+			</dl>
+			</li>
+
+			<li>
+			<dl>
+			<dt style="width:115px;padding-right:5px;">
+			<a href="http://sports.isdc.co.kr/ticket/llist/guide/2" style="word-break:break-word;" title="성남종합운동장 매표예약 바로가기">
+눈썰매장			</a>
+			</dt>
+			<dd>
+						<a href="http://sports.isdc.co.kr/ticket/llist/guide/2/09" title="눈썰매장 예약 바로가기">눈썰매장</a>
+			</dd>
+			</dl>
+			</li>
+</ul></div></li>-->
+
+<!--// 겨울레포츠 메뉴-->
+
+
+      <li class="mainmenu">
+        <a href="http://sports.isdc.co.kr/news/board/llist/notice" title="고객센터 공지사항으로 이동" class="menu">
+          <img src="/images/template/isdc/gnb_menu_04.gif" alt="고객센터" />
+        </a>
+      </li>
+
+      <li class="mainmenu_last gnbMy">
+        <a href="http://sports.isdc.co.kr/mypage/llist/index" title="마이페이지로 이동" class="menu_last">
+          <img src="/images/template/isdc/gnb_menu_05.gif" alt="마이페이지" />
+        </a>
+        <div class="gnbSub_last">
+          <ul>
+            <li>
+              <dl>
+                <dt><a href="http://sports.isdc.co.kr/mypage/llist/index" title="교육/강좌로 이동">교육/강좌</a></dt>
+                <dd>
+                  <a href="http://sports.isdc.co.kr/mypage/llist/index" title="신청현황(장바구니)으로 이동">신청현황(장바구니)</a>
+                  <a href="http://sports.isdc.co.kr/mypage/history/index" title="수강이력현황으로 이동">수강이력현황</a>
+                  <a href="http://sports.isdc.co.kr/mypage/refundlist/index" title="환불신청현황으로 이동">환불신청현황</a>
+                  <a href="http://sports.isdc.co.kr/mypage/locker/index">사물함현황/재신청</a>
+                  
+                  <script>console.log('180929');</script>                        <a href="http://sports.isdc.co.kr/mypage/locker/newrent">사물함신청</a>
+                                    
+                  
+                </dd>
+              </dl>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <dl>
+                <dt><a href="http://sports.isdc.co.kr/mypage/rlist/index" title="시설예약으로 이동">시설예약</a></dt>
+                <dd>
+                  <a href="http://sports.isdc.co.kr/mypage/rlist/index" title="시설예약신청현황으로 이동">시설예약신청현황</a>
+                  <a href="http://sports.isdc.co.kr/mypage/rhistlist/index" title="시설예약이력현황으로 이동">시설예약이력현황</a>
+                  <a href="http://sports.isdc.co.kr/mypage/rrefundlist/index" title="환불신청현황으로 이동">환불신청현황</a>
+                </dd>
+              </dl>
+            </li>
+          </ul>
+                  </div>
+      </li>
+    </ul>
+  </div>
+
+  <!--// gnb -->
+</div>
+      <!--// top -->
+
+      <div id="wrapOut">
+        <div id="wrapIn">
+
+          <!-- lng //-->
+                      <hr />
+
+            <div id="lnb">
+              <h2 class="blind">서브메뉴</h2>
+              <h2><img src="/images/layout/lnb_menu01.gif" alt="시설예약" /></h2>
+              
+              <div class="dep2">
+                <ul class="nav">
+                  <li>
+                    <a href="http://sports.isdc.co.kr/guide/rent/index/SIMC01" title="시설안내" class="">시설안내</a>
+                                      </li>
+                  <li>
+                    <a href="http://sports.isdc.co.kr/rent/guide/index/6" title="사용허가신청현황" class="">사용허가신청안내</a>
+                                      </li>
+                  <li>
+                    <a href="http://sports.isdc.co.kr/rent/application/index/" title="사용허가신청현황" class="">사용허가신청</a>
+                                      </li>
+                </ul>
+              </div>
+            </div>          <!--// lng -->
+
+          <hr />
+
+          <div id="contents">
+            <h2 class="blind">본문영역</h2>
+            <!-- path //-->
+            <div id="location">
+              <h3 class="bold">시설예약일정현황</h3>
+              <span class="path">
+                <a href="http://sports.isdc.co.kr" title="홈으로 이동"><img src="/images/layout/ico_home.gif" alt="홈" /></a> >
+                시설예약 > 사용허가신청
+                <a href="http://sports.isdc.co.kr/rent/application/index/2018/10/02/1/SIMC01" title=" 리스트로 이동"></a> >
+                <span class="bold">시설예약일정현황</span>
+              </span>
+            </div>
+            <!--// path -->
+
+            <!-- contents //-->
+
+            
+              <div class="content_body">
+
+                <ul class="category_tab">
+<li class="category_li_over"><a href="/rent/reservation/index/2018/10/02/1/SIMC01" title="탄천종합운동장"><span class="category_span_over">탄천종합운동장</span></a></li>                </ul>
+
+<form action="http://sports.isdc.co.kr/rent/inputform" method="post" accept-charset="euc-kr" id="reservation_form" name="reservation_form">                <input type="hidden" id="category_index" name="category_index" value="reservation" />
+                <input type="hidden" id="receipt_date" name="receipt_date" value="20181002" />
+                <input type="hidden" id="year" name="year" value="2018" />
+                <input type="hidden" id="month" name="month" value="10" />
+                <input type="hidden" id="rev_day" name="rev_day" value="02" />
+                <input type="hidden" id="comcd" name="comcd" value="SIMC01" />
+                <input type="hidden" id="basecd" name="basecd" value="SIMC01" />
+                <input type="hidden" id="revcd" name="revcd" value="20163312" />
+                <input type="hidden" id="partcd" name="partcd" value="07" />
+                <input type="hidden" id="placecd" name="placecd" value="26" />
+                <input type="hidden" id="is_list" name="is_list" value="1" />
+                <input type="hidden" id="baseURL" name="baseURL" value="http://sports.isdc.co.kr" />
+                <input type="hidden" id="baseSSL" name="baseSSL" value="http://sports.isdc.co.kr" />
+                <input type="hidden" id="baseball_inc_check" value="" />
+
+                
+        <ul class="rent_category_dl" id="rent_category_dl">
+          <li class="rent_category_dt">
+            <ul class="rent_category_ul">
+                  <li class="rent_category_li_select">
+                    <a href="/rent/reservation/index/2018/10/02/1/SIMC01/07" title="테니스장">
+                      테니스장                    </a>
+                  </li>
+            </ul>
+          </li>
+          <li class="rent_category_dd">
+            <ul class="rent_category_sub_dl">
+              <li class="rent_category_sub_dt">
+                <!--
+                <img src="/images/application/reserv_fac_baseball_s.gif" alt="카테고리 이미지" />
+                -->
+              </li>
+              <li class="rent_category_sub_dd">
+                <ul class="rent_category_sub_ul1">
+                      <li class="rent_category_sub_li">
+                        <a href="/rent/reservation/index/2018/10/02/1/SIMC01/07/23" title="1코트">
+                          1코트                        </a>
+                      </li>
+                      <li class="rent_category_sub_li">
+                        <a href="/rent/reservation/index/2018/10/02/1/SIMC01/07/24" title="2코트">
+                          2코트                        </a>
+                      </li>
+                      <li class="rent_category_sub_li">
+                        <a href="/rent/reservation/index/2018/10/02/1/SIMC01/07/25" title="3코트">
+                          3코트                        </a>
+                      </li>
+                      <li class="rent_category_sub_li_select">
+                        <a href="/rent/reservation/index/2018/10/02/1/SIMC01/07/26" title="4코트">
+                          4코트                        </a>
+                      </li>
+                      <li class="rent_category_sub_li">
+                        <a href="/rent/reservation/index/2018/10/02/1/SIMC01/07/27" title="당일예약(1코트)">
+                          당일예약(1코트)                        </a>
+                      </li>
+                      <li class="rent_category_sub_li">
+                        <a href="/rent/reservation/index/2018/10/02/1/SIMC01/07/29" title="당일예약(2코트)">
+                          당일예약(2코트)                        </a>
+                      </li>
+<li></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+                
+          <dl class="rent_info_table_dl" id="rent_info_table_dl">
+            <dt class="rent_info_table_dt"><img src="/file_upload_a/isdc/partcd/tennis.png" width="261" height="191" alt="4코트" /></dt>
+            <dd class="rent_info_table_dd">
+
+              <table class="rent_detail_table" summary="선택하신 장소의 상세정보입니다.">
+              <caption>탄천종합운동장</caption>
+
+              <colgroup>
+                <col width="130px" />
+                <col width="310px" />
+              </colgroup>
+
+              <thead>
+              <tr>
+                <th scope="row">센터명</th>
+              </tr>
+              <tr>
+                <th scope="row">시설명</th>
+              </tr>
+              <tr>
+                <th scope="row">접수대상</th>
+              </tr>
+              <tr>
+                <th scope="row">이용가능일</th>
+              </tr>
+              <tr>
+                <th scope="row">신청기간</th>
+              </tr>
+              <tr>
+                <th scope="row">접수방법</th>
+              </tr>
+              <tr>
+                <th scope="row">사용허가문의</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr>
+                <th scope="row">센터명</th>
+                <td><strong>탄천종합운동장</strong>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">시설명</th>
+                <td><strong>테니스장</strong>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">접수대상</th>
+                <td>[정기] 단체회원</td>
+              </tr>
+              <tr>
+                <th scope="row">이용가능일</th>
+                <td>[정기] 2018-10-02 ~ 2018-10-02</td>
+              </tr>
+              <tr>
+                <th scope="row">신청기간</th>
+                <td>[정기] 2018-09-29 ~ 2018-09-29</td>
+              </tr>
+              <tr>
+                <th scope="row">접수방법</th>
+                <td><span style="color:red;font-weight:bolder;">예약</span>, 이용전 테니스장내 무인발권기 이용하여 결제</td>
+              </tr>
+              <tr>
+                <th scope="row">사용허가문의</th>
+                <td>031-725-7167</td>
+              </tr>
+                            <tr>
+                <th scope="row">이용안내</th>
+                <td><a href="/guide/rent/index/SIMC01/07/3" style="color:red;font-weight:bolder;">자세히보기</a></td>
+              </tr>
+                            </tbody>
+
+              </table>
+            </dd>
+          </dl>
+
+                <dl class="reserve_cal_dl">
+                  <dt class="reserve_cal_dt">시설예약 일정현황</dt>
+                  <dd class="reserve_cal_dd">
+                    <ul>
+                      <li class="reserve_calendar_prev_month">
+                        <a href="http://sports.isdc.co.kr/rent/reservation/index/2018/09/02/1/SIMC01/07/26" title="이전월">
+                        <img src="/images/common/btn_left.gif" alt="이전월" />
+                        </a>
+                      </li>
+                      <li class="reserve_calendar_curr_month">2018.10</li>
+                      <li class="reserve_calendar_next_month">
+                        <a href="http://sports.isdc.co.kr/rent/reservation/index/2018/11/02/1/SIMC01/07/26" title="다음월">
+                        <img src="/images/common/btn_right.gif" alt="다음월" />
+                        </a>
+                      </li>
+                      <li  class="reserve_calendar_day">
+                            <select name="select_day" onchange="location.href='http://sports.isdc.co.kr/rent/reservation/index/2018/10/'+this.value+'/1/SIMC01/07/26'">
+                                      <option value="01" >01일</option>
+                                      <option value="02" selected="selected">02일</option>
+                                      <option value="03" >03일</option>
+                                      <option value="04" >04일</option>
+                                      <option value="05" >05일</option>
+                                      <option value="06" >06일</option>
+                                      <option value="07" >07일</option>
+                                      <option value="08" >08일</option>
+                                      <option value="09" >09일</option>
+                                      <option value="10" >10일</option>
+                                      <option value="11" >11일</option>
+                                      <option value="12" >12일</option>
+                                      <option value="13" >13일</option>
+                                      <option value="14" >14일</option>
+                                      <option value="15" >15일</option>
+                                      <option value="16" >16일</option>
+                                      <option value="17" >17일</option>
+                                      <option value="18" >18일</option>
+                                      <option value="19" >19일</option>
+                                      <option value="20" >20일</option>
+                                      <option value="21" >21일</option>
+                                      <option value="22" >22일</option>
+                                      <option value="23" >23일</option>
+                                      <option value="24" >24일</option>
+                                      <option value="25" >25일</option>
+                                      <option value="26" >26일</option>
+                                      <option value="27" >27일</option>
+                                      <option value="28" >28일</option>
+                                      <option value="29" >29일</option>
+                                      <option value="30" >30일</option>
+                                      <option value="31" >31일</option>
+                            </select>
+                      </li>
+                    </ul>
+
+                  </dd>
+                </dl>
+
+                
+<table summary="" class="calendar_table">
+  <caption></caption>
+  <colgroup>
+    <col width="14%" />
+    <col width="14%" />
+    <col width="14%" />
+    <col width="14%" />
+    <col width="14%" />
+    <col width="14%" />
+    <col width="14%" />
+  </colgroup>
+
+  <thead>
+  <tr>
+    <th scope="col" class="sunday">일</th>
+    <th scope="col">월</th>
+    <th scope="col">화</th>
+    <th scope="col">수</th>
+    <th scope="col">목</th>
+    <th scope="col">금</th>
+    <th scope="col" class="saturday">토</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+<tr>
+<td class="week_sunday"  >
+<span class="blind">2018</span><span class="blind">9</span><span class="blind">30</span><span>30</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">1</span>10/<span>1</span> <span class="holiday"></span><br /></td>
+<td class="reservation_today" >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">2</span><span>2</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday  week_holiday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">3</span><span>3</span> <span class="holiday">개천절</span><br /><span class="reservation_restday"></span></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">4</span><span>4</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">5</span><span>5</span> <span class="holiday"></span><br /></td>
+<td class="week_saturday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">6</span><span>6</span> <span class="holiday"></span><br /></td>
+</tr>
+<tr>
+<td class="week_sunday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">7</span><span>7</span> <span class="holiday"></span><br /><span class="reservation_restday">1,3주 휴장일</span></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">8</span><span>8</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday  week_holiday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">9</span><span>9</span> <span class="holiday">한글날</span><br /><span class="reservation_restday"></span></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">10</span><span>10</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">11</span><span>11</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">12</span><span>12</span> <span class="holiday"></span><br /></td>
+<td class="week_saturday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">13</span><span>13</span> <span class="holiday"></span><br /></td>
+</tr>
+<tr>
+<td class="week_sunday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">14</span><span>14</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">15</span><span>15</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">16</span><span>16</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">17</span><span>17</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">18</span><span>18</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">19</span><span>19</span> <span class="holiday"></span><br /></td>
+<td class="week_saturday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">20</span><span>20</span> <span class="holiday"></span><br /></td>
+</tr>
+<tr>
+<td class="week_sunday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">21</span><span>21</span> <span class="holiday"></span><br /><span class="reservation_restday">1,3주 휴장일</span></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">22</span><span>22</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">23</span><span>23</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">24</span><span>24</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">25</span><span>25</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">26</span><span>26</span> <span class="holiday"></span><br /></td>
+<td class="week_saturday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">27</span><span>27</span> <span class="holiday"></span><br /></td>
+</tr>
+<tr>
+<td class="week_sunday"  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">28</span><span>28</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">29</span><span>29</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">30</span><span>30</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">10</span><span class="blind">31</span><span>31</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">1</span>11/<span>1</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">2</span><span>2</span> <span class="holiday"></span><br /></td>
+<td class="week_saturday"  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">3</span><span>3</span> <span class="holiday"></span><br /></td>
+</tr>
+<tr>
+<td class="week_sunday"  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">4</span><span>4</span> <span class="holiday"></span><br /><span class="reservation_restday">1,3주 휴장일</span></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">5</span><span>5</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">6</span><span>6</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">7</span><span>7</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">8</span><span>8</span> <span class="holiday"></span><br /></td>
+<td class=" week_normalday "  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">9</span><span>9</span> <span class="holiday"></span><br /></td>
+<td class="week_saturday"  >
+<span class="blind">2018</span><span class="blind">11</span><span class="blind">10</span><span>10</span> <span class="holiday"></span><br /></td>
+</tr>
+
+  </tbody>
+
+</table>
+
+
+                <ul class="time_reservation_dl">
+                  <li class="time_reservation_dt">
+                    <ul>
+                      <li>
+                        <dl class="time_reservation_sub_dl">
+                          <dt>사용구분 : </dt>
+                          <dd>
+                            <ul>
+                                                            <li><input type="radio" id="select_group_sport" name="select_group" value="Y" checked="checked" /> <label for="select_group_sport">체육경기</label></li>
+                            	                            	                            </ul>
+                          </dd>
+                        </dl>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="time_reservation_dd">
+
+                    
+            <table class="time_reservation_table_sports" summary="선택일자의 이용가능 시간입니다.">
+            <caption>이용시간 선택</caption>
+
+            <colgroup>
+              <col width="50px" />
+              <col width="150px" />
+              <col width="200px" />
+                
+              <col width="320px" />
+            </colgroup>
+
+            <thead>
+            <tr>
+              <th scope="col">선택</th>
+              <th scope="col">회차</th>
+              <th scope="col">이용시간</th>
+                     
+              <th scope="col">예약인</th>
+                     
+            </tr>
+            </thead>
+
+            <tbody>
+              
+<tr>
+<td><span class="select_check" name="receipt_time[]" id="select_1" value="154" >X</span></td>                    <td>
+                      12시                      <input type="hidden" name="use_gbn" value="12시" />
+                    </td>
+                    <td>12:00 ~ 14:00</td>
+                    <td>전○겸                    <input type="hidden" id="sports_stime_1" value="12" />
+                    <input type="hidden" id="sports_etime_1" value="14" />
+                    </td>
+                    
+                  <!--    -->
+
+                  </tr>
+
+<tr>
+<td><span class="select_check" name="receipt_time[]" id="select_2" value="155" >X</span></td>                    <td>
+                      14시                      <input type="hidden" name="use_gbn" value="14시" />
+                    </td>
+                    <td>14:00 ~ 16:00</td>
+                    <td>이○선                    <input type="hidden" id="sports_stime_2" value="14" />
+                    <input type="hidden" id="sports_etime_2" value="16" />
+                    </td>
+                    
+                  <!--    -->
+
+                  </tr>
+
+            
+            </tbody>
+
+            </table>
+
+
+            <table class="time_reservation_table_events" summary="선택일자의 이용가능 시간입니다.">
+            <caption>이용시간 선택</caption>
+
+            <colgroup>
+              <col width="50px" />
+              <col width="150px" />
+              <col width="200px" />
+     
+              <col width="320px" />
+            </colgroup>
+
+            <thead>
+            <tr>
+              <th scope="col">선택</th>
+              <th scope="col">회차</th>
+              <th scope="col">이용시간</th>
+              
+              <th scope="col">예약단체명</th>
+              
+            </tr>
+            </thead>
+
+            <tbody>
+              
+<tr>
+<td><span class="select_check_events" name="receipt_time[]" id="select_events_1" value="154" >X</span></td>                    <td>
+                      12시                      <input type="hidden" name="use_gbn" value="12시" />
+                    </td>
+                    <td>12:00 ~ 14:00</td>
+                    <td>전○겸                    <input type="hidden" id="events_stime_1" value="12" />
+                    <input type="hidden" id="events_etime_1" value="14" />
+                    </td>
+                                      </tr>
+
+<tr>
+<td><span class="select_check_events" name="receipt_time[]" id="select_events_2" value="155" >X</span></td>                    <td>
+                      14시                      <input type="hidden" name="use_gbn" value="14시" />
+                    </td>
+                    <td>14:00 ~ 16:00</td>
+                    <td>이○선                    <input type="hidden" id="events_stime_2" value="14" />
+                    <input type="hidden" id="events_etime_2" value="16" />
+                    </td>
+                                      </tr>
+
+
+            </tbody>
+
+            </table>
+            <input type="hidden" id="select_cnt" value="2" />
+            <input type="hidden" id="max_rent_time" value="2" />
+            <input type="hidden" id="min_rent_time" value="2" />
+            <input type="hidden" id="reservation_stime" value="" />
+            <input type="hidden" id="reservation_etime" value="" />
+                  </li>
+
+				  				  	<!--
+				  	2017-01-02 박찬호 recaptcha 제거후 real-person 적용
+								<li class="time_reservation_dd" style="margin-top:10px;">
+									<label for="captcha">체크박스를 선택해주세요.</label>
+                  	<script src='https://www.google.com/recaptcha/api.js'></script>
+								<div id="grecaptcha" class="g-recaptcha" data-sitekey="6LcvfxgTAAAAABgRrcqhArWGubQKWp7DbsrKYuyo" style="float:left"></div>
+                </li>
+            -->
+                <h3 style="margin-top:10px;">자동입력방지 문자를 입력후 확인버튼을 눌러주세요.</h3>
+							  <li class="time_reservation_dd" style="border:solid 1px #cfcfcf;">
+
+							  	<table>
+							  		<tr>
+							  			<td>
+								  			<div class="realperson-challenge" style="width:160px; display:inline-block; margin:5px 5px 5px;">
+								  				<div class="realperson-text">
+								  				</div>
+								  			</div>
+							  			</td>
+							  			<td>
+							  				<table>
+							  					<tr id="sendarea">
+							  						<td>
+								  						<input name="defaultReal" class="is-realperson" id="defaultReal" type="text" style="width:140px; margin-right:5px; margin-top:8px;">
+								  						<!-- <input type="hidden" name="realPerson" id="realPerson" value="f"/> -->
+								  						<button name="btn_realperson" id="btn_realperson" type="button">확인</button>
+							  						</td>
+							  					</tr>
+							  				</table>
+							  			</td>
+							  		</tr>
+							  	</table>
+
+								</li>
+				  
+                </ul>
+
+
+                <ul class="button_area">
+                	                  <li class="btn_2">
+                    <input type="image" src="/images/btn/btn_reserv.gif" id="btn_reservation" title="예약신청" />
+                  </li>
+                                    <li class="btn_2">
+                                      <a href="http://sports.isdc.co.kr/rent/application/index/2018/10/02/1/SIMC01/07/26" title="이전페이지">
+                    <img src="/images/btn/btn_pervious.gif" alt="이전페이지" />
+                    </a>
+                  </li>
+                </ul>
+
+                </form>
+
+              </div>
+
+              <div class="checkmsg"></div>
+            <!--// contents -->
+          </div>
+        </div>
+      </div>
+
+      <!-- footer //-->
+          <hr />
+
+    <div id="globalFooter">
+      <div id="footer_banner">
+        <h4 class="blind">하단 배너</h4>
+
+        <ul>
+          <li id="banner_prev" >
+            이전배너표시
+          </li>
+          <li class="footer_banner_list">
+            <ul style="width:1500px;">
+                <li class="footer_banner_li">
+                  <a href="http://www.sncouncil.go.kr/" target="_blank" title="새 창에서 표시 : 성남시의회" >
+                    <img src="/images/banner/banner_19.gif" class="banner_img" alt="성남시의회" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://www.seongnam.go.kr/" target="_blank" title="새 창에서 표시 : 성남시청" >
+                    <img src="/images/banner/banner_01.gif" class="banner_img" alt="성남시청" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://jw.snlib.net" target="_blank" title="새 창에서 표시 : 성남시 중원도서관" >
+                    <img src="/images/banner/ban_jw.gif" class="banner_img" alt="성남시 중원도서관" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://sj.snlib.go.kr/" target="_blank" title="새 창에서 표시 : 성남시 수정도서관" >
+                    <img src="/images/banner/ban_sj.gif" class="banner_img" alt="성남시 수정도서관" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://www.snventure.net" target="_blank" title="새 창에서 표시 : 성남산업진흥원" >
+                    <img src="/images/banner/banner_21.gif" class="banner_img" alt="성남산업진흥원" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://www.snart.or.kr" target="_blank" title="새 창에서 표시 : 성남문화재단사이트" >
+                    <img src="/images/banner/banner_20.gif" class="banner_img" alt="성남문화재단사이트" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://volunteer.seongnam.go.kr" target="_blank" title="새 창에서 표시 : 내자녀 바로알기 학부모 서비스" >
+                    <img src="/images/banner/banner_17.gif" class="banner_img" alt="내자녀 바로알기 학부모 서비스" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://ct.snlib.net" target="_blank" title="새 창에서 표시 : 성남 중앙도서관" >
+                    <img src="/images/banner/banner_18.gif" class="banner_img" alt="성남 중앙도서관" />
+                  </a>
+                </li>
+                <li class="footer_banner_li">
+                  <a href="http://lll.seongnam.go.kr/seongnam/main.do" target="_blank" title="새 창에서 표시 : 성남시 평생학습원" >
+                    <img src="/images/banner/banner_07.gif" class="banner_img" alt="성남시 평생학습원" />
+                  </a>
+                </li>
+            </ul>
+          </li>
+          <li id="banner_next">
+            다음배너 표시
+          </li>
+        </ul>
+        <input type="hidden" id="banner_total_count" value="9" />
+      </div>
+    </div>
+
+    <div id="footer" style="padding-bottom:50px">
+      <h2 class="blind">하단메뉴</h2>
+
+      <div class="policy">
+        <ul>
+          <li><a href="http://sports.isdc.co.kr/service/privacy" title="개인정보취급방침 페이지로 이동" style="color:#cc0000; font-weight:bold">개인정보처리방침</a></li>
+          <li><a href="http://sports.isdc.co.kr/service/service" title="이용약관 페이지로 이동">이용약관</a></li>
+          <li><a href="http://sports.isdc.co.kr/service/email" title="이메일무단수집거부 페이지로 이동">이메일무단수집거부</a></li>
+          <li class="lastBg"><a href="http://sports.isdc.co.kr/service/sitemap" title="사이트맵 페이지로 이동">사이트맵</a></li>
+        </ul>
+      </div>
+
+      <address>
+      주소 : 성남시 분당구 탄천로 215 탄천종합운동장 체육회관 5 본청) 	  &nbsp;  TEL : 
+       
+        <select name="tel_guide">
+        	<option>전화번호를 확인하세요</option>
+        	<option>탄천종합운동장 : ☎031-725-7100</option>
+        	<option>성남종합운동장 : ☎031-754-3100</option>
+        	<option>성남시 평생학습관 스포츠센터 : ☎031-781-1072</option>
+        	<option>판교스포츠센터 : ☎031-724-4660</option>
+        </select>
+       <!--  <br/>사업자번호: 144-82-00548 <span style="color:#ccc"> l</span>  대표자성함: 황호양  --><!--<span style="color:#ccc"> l</span>결제문의: 031-739-6704-->
+        <br />
+        Copyright&copy; 2013 성남도시개발공사 All Rights Reserved.
+        <!--대표자명 : 정옥균&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 137-82-05394&nbsp;&nbsp;&nbsp;&nbsp;<!--개인정보관리책임자 : //-->
+        <a href="http://sports.isdc.co.kr" class="logo" title="홈으로 이동">
+          <img src="/images/center/isdc/logo_footer.gif" alt="성남도시개발공사 로고" />
+        </a>
+      </address>
+    </div>      <!--// footer //-->
+
+    </div>
+  </div>
+</body>
+</html>
