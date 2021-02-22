@@ -7,11 +7,10 @@
   "content_scripts": [
     {
       "matches": [
-        "http://sports.isdc.co.kr/member/login",
-        "http://sports.isdc.co.kr/rent/reservation/index/*",
-        "http://sports.isdc.co.kr/rent/inputform",
-        "http://time.navyism.com/?host=sports.isdc.co.kr",
-        "http://sports.isdc.co.kr/message"
+        "https://www.osansports.or.kr/yeyak/member/login",
+        "https://www.osansports.or.kr/yeyak/lecture/detail/index",
+        "https://time.navyism.com/?host=www.osansports.or.kr",
+        "https://www.osansports.or.kr/yeyak/message"
       ],
       "js": ["contentscript.js"],
       "run_at": "document_idle",
