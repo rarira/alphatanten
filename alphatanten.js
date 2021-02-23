@@ -5,12 +5,13 @@ console.log('js injected');
 // );
 
 // let timeSlot = 'select_1';
-const loginTimeArray = ['11시 18분 00초', '17시 28분 00초'];
-const resvTimeArray = ['11시 19분 59초', '17시 29분 59초'];
+const loginTimeArray = ['11시 28분 00초', '17시 28분 00초'];
+const resvTimeArray = ['11시 29분 58초', '17시 29분 58초'];
 const resvUrlArray = [
-  'https://www.osansports.or.kr/yeyak/lecture/detail/index/OSANSISUL01/2001/00107/I000044',
-  'https://www.osansports.or.kr/yeyak/lecture/detail/index/OSANSISUL03/2001/00445/I000203',
+  'https://www.osansports.or.kr/yeyak/lecture/detail/index/OSANSISUL01/2001/00210/I000044',
+  'https://www.osansports.or.kr/yeyak/lecture/detail/index/OSANSISUL03/2001/00480/I000209',
 ];
+const timerURL = 'https://time.navyism.com/?host=www.osansports.or.kr';
 var loginTime;
 var resvTime;
 var resvURL;
@@ -22,27 +23,30 @@ if (document.getElementsByClassName('error').length !== 0) {
     // location.href = resvURL;
   }
 } else if (
-  document.getElementsByClassName('lecture_status_img').length &&
-  document.getElementsByClassName('lecture_status_img')[0].alt ===
-    '수강신청 기간으로 수강접수가 가능합니다.'
+  document.getElementsByClassName('lecture_status_img').length > 0 &&
+  document.getElementsByClassName('lecture_status_img')[0].alt &&
+  document.getElementsByClassName('lecture_status_img')[0].alt.includes('가능')
 ) {
   console.log('apply!');
 
-  const array = document.getElementsByTagName('input');
-  if (array[array.length - 1].alt === '수강신청') {
-    array[array.length - 1].click();
+  const inputArray = document.getElementsByTagName('input');
+
+  if (inputArray[inputArray.length - 1].alt === '수강신청') {
+    inputArray[inputArray.length - 1].click();
   } else {
-    const btnNumber = array.findIndex((input) => input.alt === '수강신청');
-    array[btnNumber].click();
+    for (let num = 0; num++; inputArray.length - 1) {
+      if (inputArray[num].alt === '수강신청') {
+        inputArray[num].click();
+      }
+    }
   }
 } else if (document.getElementById('input_memid') !== null) {
   console.log('login');
   document.getElementById('input_memid').value = 'rarira';
   document.getElementById('input_mempw').value = 'secu1968';
   document.getElementsByTagName('input')[3].click();
-  setTimeout(function () {
-    location.href = 'http://time.navyism.com/?host=www.osansports.or.kr';
-  }, 100);
+} else if (location.href === 'https://www.osansports.or.kr/yeyak/') {
+  location.href = timerURL;
 } else if (document.getElementById('time_area') !== null) {
   console.log('timer');
 
@@ -51,22 +55,23 @@ if (document.getElementsByClassName('error').length !== 0) {
   if (nowTime > '12시 00분 00초') {
     loginTime = loginTimeArray[1];
     resvTime = resvTimeArray[1];
-    resvURL = resvURL[1];
+    resvURL = resvUrlArray[1];
   } else {
     loginTime = loginTimeArray[0];
     resvTime = resvTimeArray[0];
-    resvURL = resvURL[0];
+    resvURL = resvUrlArray[0];
   }
 
   var loginTimer = window.setInterval(function () {
-    if (document.getElementById('time_area').innerHTML.includes(loginTime)) {
+    if (document.getElementById('time_area').innerText.includes(loginTime)) {
       clearInterval(loginTimer);
+
       location.href = 'https://www.osansports.or.kr/yeyak/member/login';
     }
   }, 1000);
 
   var resvTimer = window.setInterval(function () {
-    if (document.getElementById('time_area').innerHTML.includes(resvTime)) {
+    if (document.getElementById('time_area').innerText.includes(resvTime)) {
       clearInterval(resvTimer);
       location.href = resvURL;
     }
