@@ -84,6 +84,8 @@ if (document.getElementsByClassName('error').length !== 0) {
     const link = getLinksByTitle(date, '1부강좌상세보기')[0];
     resvURL = link.href;
   }
+
+  location.href = timerURL;
 } else if (document.getElementById('time_area') !== null) {
   console.log('timer');
 
