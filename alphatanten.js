@@ -8,7 +8,7 @@ var today = new Date();
 var dd = today.getDate() + 1;
 var mm = today.getMonth() + 1; //January is 0!
 
-const date = `${mm}월 ${dd}일`;
+const day = `${mm}월 ${dd}일`;
 
 const listURLArray = [
   'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL01/2001/L/105001/0/0/0/0/0/0/0/1/-/-/1/1',
@@ -26,6 +26,14 @@ var resvTime;
 var listURL;
 var resvURL;
 
+const queryString = window.location.search;
+var searchParams = new URLSearchParams(queryString);
+
+if (searchParams.has('resvURL')) {
+  console.log('has resvURL param');
+  resvURL = searchParams.get('resvURL');
+}
+
 function getLinksByTitle(day, title) {
   var allLinks = document.getElementsByTagName('a');
   var links = [];
@@ -39,6 +47,9 @@ function getLinksByTitle(day, title) {
       links.push(allLinks[i]);
     }
   }
+
+  console.log(links);
+
   return links;
 }
 
@@ -73,19 +84,30 @@ if (document.getElementsByClassName('error').length !== 0) {
   document.getElementsByTagName('input')[3].click();
 } else if (location.href === 'https://www.osansports.or.kr/yeyak/') {
   location.href = timerURL;
-} else if (location.href === listURL) {
-  if (listURL === listURLArray[1]) {
+} else if (
+  location.href === listURLArray[0] ||
+  location.href === listURLArray[1]
+) {
+  if (location.href === listURLArray[1]) {
     const link = getLinksByTitle(
       '<남자>일일수영',
       '19:00~21:00강좌상세보기'
     )[0];
-    resvURL = link.href;
+    console.log(link);
+    if (!!link) {
+      resvURL = link.href;
+    }
   } else {
-    const link = getLinksByTitle(date, '1부강좌상세보기')[0];
-    resvURL = link.href;
+    const link = getLinksByTitle(day, '1부강좌상세보기')[0];
+    console.log(link);
+    if (!!link) {
+      resvURL = link.href;
+    }
   }
 
-  location.href = timerURL;
+  console.log(resvURL);
+
+  location.href = `${timerURL}&resvURL=${resvURL}`;
 } else if (document.getElementById('time_area') !== null) {
   console.log('timer');
 
@@ -117,7 +139,7 @@ if (document.getElementsByClassName('error').length !== 0) {
     if (document.getElementById('time_area').innerText.includes(getURLTime)) {
       clearInterval(getURLTimer);
 
-      location.href = listURLArray;
+      location.href = listURL;
     }
   }, 1000);
 
@@ -130,5 +152,6 @@ if (document.getElementsByClassName('error').length !== 0) {
 
   console.log('login timer activated: ', loginTime);
   console.log('reservation timer activated: ', resvTime);
+  console.log('getURLtimer activated: ', getURLTime);
   console.log('resvURL: ', resvURL);
 }
