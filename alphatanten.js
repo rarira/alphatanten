@@ -1,18 +1,18 @@
 console.log('js injected');
 
-const loginTimeArray = ['11시 28분 00초', '17시 28분 00초'];
-const getURLTimeArray = ['11시 28분 30초', '17시 28분 30초'];
+const loginTimeArray = ['11시 25분 00초', '17시 25분 00초'];
+const getURLTimeArray = ['11시 25분 30초', '17시 25분 30초'];
 const resvTimeArray = ['11시 29분 58초', '17시 29분 58초'];
 
-var today = new Date();
-var dd = today.getDate() + 1;
-var mm = today.getMonth() + 1; //January is 0!
+// var today = new Date();
+// var dd = today.getDate() + 1;
+// var mm = today.getMonth() + 1; //January is 0!
 
-const day = `${mm}월 ${dd}일`;
+// const day = `${mm}월 ${dd}일`;
 
 const listURLArray = [
   'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL01/2001/L/105001/0/0/0/0/0/0/0/1/-/-/1/1',
-  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL03/2001/L/112004/0/0/0/0/0/0/0/1/-/-/1/1',
+  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL03/2001/L/112003/0/0/0/0/0/0/0/1/-/-/1/1',
 ];
 
 // const resvUrlArray = [
@@ -34,13 +34,16 @@ if (searchParams.has('resvURL')) {
   resvURL = searchParams.get('resvURL');
 }
 
-function getLinksByTitle(day, title) {
+function getLinksByTitle(
+  // day,
+  title
+) {
   var allLinks = document.getElementsByTagName('a');
   var links = [];
   for (var i = 0, len = allLinks.length; i < len; ++i) {
     if (
       !!allLinks[i].title &&
-      allLinks[i].title.startsWith(day) &&
+      // allLinks[i].title.startsWith(day) &&
       allLinks[i].title.endsWith(title) &&
       allLinks[i].innerText.includes('성인')
     ) {
@@ -90,7 +93,7 @@ if (document.getElementsByClassName('error').length !== 0) {
 ) {
   if (location.href === listURLArray[1]) {
     const link = getLinksByTitle(
-      '<남자>일일수영',
+      // '<남자>일일수영',
       '19:00~21:00강좌상세보기'
     )[0];
     console.log(link);
@@ -98,7 +101,10 @@ if (document.getElementsByClassName('error').length !== 0) {
       resvURL = link.href;
     }
   } else {
-    const link = getLinksByTitle(day, '1부강좌상세보기')[0];
+    const link = getLinksByTitle(
+      // day,
+      '1부강좌상세보기'
+    )[0];
     console.log(link);
     if (!!link) {
       resvURL = link.href;
