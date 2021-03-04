@@ -12,7 +12,7 @@ const resvTimeArray = ['11시 29분 58초', '17시 29분 58초'];
 
 const listURLArray = [
   'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL01/2001/L/105001/0/0/0/0/0/0/0/1/-/-/1/1',
-  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL03/2001/L/112003/0/0/0/0/0/0/0/1/-/-/1/1',
+  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL03',
 ];
 
 // const resvUrlArray = [
