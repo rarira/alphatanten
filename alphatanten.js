@@ -103,7 +103,7 @@ if (document.getElementsByClassName('error').length !== 0) {
   } else {
     const link = getLinksByTitle(
       // day,
-      '1부강좌상세보기'
+      '2부강좌상세보기'
     )[0];
     console.log(link);
     if (!!link) {
