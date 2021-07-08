@@ -2,7 +2,7 @@ console.log('js injected');
 
 const loginTimeArray = ['11시 25분 00초', '17시 25분 00초'];
 const getURLTimeArray = ['11시 25분 30초', '17시 25분 30초'];
-const resvTimeArray = ['11시 29분 58초', '17시 29분 58초'];
+const resvTimeArray = ['11시 29분 59초', '17시 29분 59초'];
 
 // var today = new Date();
 // var dd = today.getDate() + 1;
@@ -11,8 +11,8 @@ const resvTimeArray = ['11시 29분 58초', '17시 29분 58초'];
 // const day = `${mm}월 ${dd}일`;
 
 const listURLArray = [
-  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL01/2001/L/105001/0/0/0/0/0/0/0/1/-/-/1/1',
-  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL03',
+  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL01/2001/L/1000060001/0/0/0/0/0/0/0/1/-/-/1/1',
+  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL03/2001/L/112003/0/0/0/0/0/0/0/1/-/-/1/1',
 ];
 
 // const resvUrlArray = [
@@ -25,6 +25,10 @@ var getURLTime;
 var resvTime;
 var listURL;
 var resvURL;
+var titleArray;
+var linkArray;
+var linkIndex;
+var title = '3부강좌상세보기';
 
 const queryString = window.location.search;
 var searchParams = new URLSearchParams(queryString);
@@ -67,7 +71,7 @@ if (document.getElementsByClassName('error').length !== 0) {
   document.getElementsByClassName('lecture_status_img')[0].alt &&
   document.getElementsByClassName('lecture_status_img')[0].alt.includes('가능')
 ) {
-  console.log('apply!');
+  console.log('apply!', linkIndex);
 
   const inputArray = document.getElementsByTagName('input');
 
@@ -84,7 +88,7 @@ if (document.getElementsByClassName('error').length !== 0) {
   console.log('login');
   document.getElementById('input_memid').value = 'rarira';
   document.getElementById('input_mempw').value = 'secu1968';
-  document.getElementsByTagName('input')[3].click();
+  document.getElementsByTagName('input')[5].click();
 } else if (location.href === 'https://www.osansports.or.kr/yeyak/') {
   location.href = timerURL;
 } else if (
@@ -92,26 +96,32 @@ if (document.getElementsByClassName('error').length !== 0) {
   location.href === listURLArray[1]
 ) {
   if (location.href === listURLArray[1]) {
+    title = '19:00~21:00강좌상세보기';
     const link = getLinksByTitle(
       // '<남자>일일수영',
-      '19:00~21:00강좌상세보기'
+      title
     )[0];
-    console.log(link);
+    console.log(title, link);
     if (!!link) {
       resvURL = link.href;
     }
   } else {
-    const link = getLinksByTitle(
-      // day,
-      '2부강좌상세보기'
-    )[0];
-    console.log(link);
-    if (!!link) {
-      resvURL = link.href;
+    // title = '3부강좌상세보기';
+    titleArray = ['3부강좌상세보기', '2부강좌상세보기'];
+    // const link = getLinksByTitle(
+    //   // day,
+    //   title
+    // )[0];
+
+    linkArray = titleArray.map((title) => getLinksByTitle(title)[0]);
+    console.log(titleArray, linkArray);
+    if (linkArray.length > 0) {
+      linkArray.forEach((link, index) => {
+        linkIndex = index;
+        resvURL = link.href;
+      });
     }
   }
-
-  console.log(resvURL);
 
   location.href = `${timerURL}&resvURL=${resvURL}`;
 } else if (document.getElementById('time_area') !== null) {
@@ -160,4 +170,5 @@ if (document.getElementsByClassName('error').length !== 0) {
   console.log('reservation timer activated: ', resvTime);
   console.log('getURLtimer activated: ', getURLTime);
   console.log('resvURL: ', resvURL);
+  console.log('선택 수업: ', title);
 }
