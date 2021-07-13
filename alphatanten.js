@@ -1,130 +1,145 @@
-console.log('js injected');
+// data
 
-const loginTimeArray = ['11시 25분 00초', '17시 25분 00초'];
-const getURLTimeArray = ['11시 25분 30초', '17시 25분 30초'];
-const resvTimeArray = ['11시 29분 59초', '17시 29분 59초'];
+const SEGYO = 'segyo';
+const WON = 'won';
 
-// var today = new Date();
-// var dd = today.getDate() + 1;
-// var mm = today.getMonth() + 1; //January is 0!
-
-// const day = `${mm}월 ${dd}일`;
-
-const listURLArray = [
-  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL01/2001/L/1000060001/0/0/0/0/0/0/0/1/-/-/1/1',
-  'https://www.osansports.or.kr/yeyak/lecture/llist/index/OSANSISUL03/2001/L/112003/0/0/0/0/0/0/0/1/-/-/1/1',
+const segyoArray = [
+  ['107', '197', '224', '220'],
+  ['206', '207', '209', '221'],
+  ['210', '211', '213', '222'],
+  ['214', '215', '217', '218'],
+  ['200', '201', '203', '223'],
 ];
 
-// const resvUrlArray = [
-//   'https://www.osansports.or.kr/yeyak/lecture/detail/index/OSANSISUL01/2001/00210/I000044',
-//   'https://www.osansports.or.kr/yeyak/lecture/detail/index/OSANSISUL03/2001/00478/I000219',
-// ];
+const wonArray = [
+  ['297', '026', '027', '028'],
+  ['299', '301', '302', '303'],
+  ['310', '311', '312', '317'],
+  ['304', '010', '305', '306'],
+  ['307', '308', '316', '309'],
+];
+
+const loginTimeArray = ['11시 25분 00초', '17시 25분 00초'];
+const resvTimeArray = ['11시 29분 59초', '17시 29분 59초'];
+
 const timerURL = 'https://time.navyism.com/?host=www.osansports.or.kr';
-var loginTime;
-var getURLTime;
-var resvTime;
-var listURL;
-var resvURL;
-var titleArray;
-var linkArray;
-var linkIndex;
-var title = '3부강좌상세보기';
+const loginURL =
+  'https://www.osansports.or.kr/fmcs/45?referer=https%3A%2F%2Fwww.osansports.or.kr%2Ffmcs%2F1';
+
+// running code
+
+console.log('js injected');
+
+let targetClass = 2;
+let centerArray = [SEGYO];
+let targetClassArray = [1, 2];
+let resvURLArray = [];
+
+const getTargetDay = () => {
+  let today = new Date();
+  let day = today.getDay();
+
+  let targetDay = 1;
+
+  switch (day) {
+    case 5:
+      targetDay = 1;
+      break;
+    case 6:
+      targetDay = 1;
+      break;
+    default:
+      targetDay = day + 1;
+      break;
+  }
+
+  return targetDay;
+};
+
+const getClassURL = (center, targetDay, targetClass) => {
+  let finalURL;
+
+  const urlSuffix = '&type=R';
+  const segyoBaseURL =
+    'https://www.osansports.or.kr/fmcs/29?center=OSANSISUL01&action=read&page=1&event=1000000000&class=1000060000&comcd=OSANSISUL01&classcd=00';
+  const wonBaseURL =
+    'https://www.osansports.or.kr/fmcs/29?center=OSANSISUL02&action=read&page=1&event=1040000000&class=1040010000&comcd=OSANSISUL02&classcd=00';
+
+  switch (center) {
+    case SEGYO:
+      finalURL =
+        segyoBaseURL + `${segyoArray[targetDay][targetClass]}` + urlSuffix;
+      break;
+    case WON:
+      finalURL = wonBaseURL + `${wonArray[targetDay][targetClass]}` + urlSuffix;
+      break;
+  }
+
+  return finalURL;
+};
+
+const logIn = () => {
+  console.log('login');
+  document.getElementById('user_id').value = 'rarira';
+  document.getElementById('user_password').value = 'secu1968';
+  document.getElementsByClassName('submit')[0].children[0].click();
+};
+
+const addCenter = (newCenter) => {
+  if (newCenter === WON) {
+    centerArray.push(newCenter);
+  } else {
+    console.log(centerArray, 'must be WON or other');
+  }
+};
+
+const setTargetClassArray = (array) => {
+  targetClassArray = array;
+  console.log(targetClassArray);
+};
+
+const openResvWindows = () => {
+  resvURLArray.forEach((url) => {
+    window.open(url, '_blank');
+  });
+};
+
+const makeResv = () => {
+  document.getElementsByClassName('button action_write')[0].click();
+};
+
+let loginTime;
+let resvTime;
+let resvURL;
 
 const queryString = window.location.search;
-var searchParams = new URLSearchParams(queryString);
+let searchParams = new URLSearchParams(queryString);
 
-if (searchParams.has('resvURL')) {
-  console.log('has resvURL param');
-  resvURL = searchParams.get('resvURL');
+//
+if (searchParams.has('ready')) {
+  console.log('has loggedIn');
+  const targetDay = getTargetDay();
+
+  centerArray.forEach((center) => {
+    targetClassArray.forEach((classNo) => {
+      const url = getClassURL(center, targetDay, classNo);
+      resvURLArray.push(url);
+    });
+  });
 }
 
-function getLinksByTitle(
-  // day,
-  title
-) {
-  var allLinks = document.getElementsByTagName('a');
-  var links = [];
-  for (var i = 0, len = allLinks.length; i < len; ++i) {
-    if (
-      !!allLinks[i].title &&
-      // allLinks[i].title.startsWith(day) &&
-      allLinks[i].title.endsWith(title) &&
-      allLinks[i].innerText.includes('성인')
-    ) {
-      links.push(allLinks[i]);
-    }
-  }
-
-  console.log(links);
-
-  return links;
+// 로그인 후에 다시 타이머로 이동
+if (location.href === 'https://www.osansports.or.kr/fmcs/1?prev_proc=login') {
+  location.href = `${timerURL}&ready=true`;
 }
 
-if (document.getElementsByClassName('error').length !== 0) {
-  console.log('error screen');
-  if (document.getElementsByClassName('error')[0].innerText !== '') {
-    document.getElementById('btn_prev').click();
-    // location.href = resvURL;
-  }
-} else if (
-  document.getElementsByClassName('lecture_status_img').length > 0 &&
-  document.getElementsByClassName('lecture_status_img')[0].alt &&
-  document.getElementsByClassName('lecture_status_img')[0].alt.includes('가능')
-) {
-  console.log('apply!', linkIndex);
+// 로그인 처리
+else if (document.getElementById('user_id') !== null) {
+  logIn();
+}
 
-  const inputArray = document.getElementsByTagName('input');
-
-  if (inputArray[inputArray.length - 1].alt === '수강신청') {
-    inputArray[inputArray.length - 1].click();
-  } else {
-    for (let num = 0; num++; inputArray.length - 1) {
-      if (inputArray[num].alt === '수강신청') {
-        inputArray[num].click();
-      }
-    }
-  }
-} else if (document.getElementById('input_memid') !== null) {
-  console.log('login');
-  document.getElementById('input_memid').value = 'rarira';
-  document.getElementById('input_mempw').value = 'secu1968';
-  document.getElementsByTagName('input')[5].click();
-} else if (location.href === 'https://www.osansports.or.kr/yeyak/') {
-  location.href = timerURL;
-} else if (
-  location.href === listURLArray[0] ||
-  location.href === listURLArray[1]
-) {
-  if (location.href === listURLArray[1]) {
-    title = '19:00~21:00강좌상세보기';
-    const link = getLinksByTitle(
-      // '<남자>일일수영',
-      title
-    )[0];
-    console.log(title, link);
-    if (!!link) {
-      resvURL = link.href;
-    }
-  } else {
-    // title = '3부강좌상세보기';
-    titleArray = ['3부강좌상세보기', '2부강좌상세보기'];
-    // const link = getLinksByTitle(
-    //   // day,
-    //   title
-    // )[0];
-
-    linkArray = titleArray.map((title) => getLinksByTitle(title)[0]);
-    console.log(titleArray, linkArray);
-    if (linkArray.length > 0) {
-      linkArray.forEach((link, index) => {
-        linkIndex = index;
-        resvURL = link.href;
-      });
-    }
-  }
-
-  location.href = `${timerURL}&resvURL=${resvURL}`;
-} else if (document.getElementById('time_area') !== null) {
+// 타이머 처리
+else if (document.getElementById('time_area') !== null) {
   console.log('timer');
 
   let nowTime = document.getElementById('time_area').innerText.slice(-11);
@@ -132,43 +147,61 @@ if (document.getElementsByClassName('error').length !== 0) {
   if (nowTime > '12시 00분 00초') {
     loginTime = loginTimeArray[1];
     resvTime = resvTimeArray[1];
-    getURLTime = getURLTimeArray[1];
-    listURL = listURLArray[1];
-    // resvURL = resvUrlArray[1];
   } else {
     loginTime = loginTimeArray[0];
     resvTime = resvTimeArray[0];
-    getURLTime = getURLTimeArray[0];
-    listURL = listURLArray[0];
-    // resvURL = resvUrlArray[0];
   }
 
-  var loginTimer = window.setInterval(function () {
+  let loginTimer = window.setInterval(function () {
     if (document.getElementById('time_area').innerText.includes(loginTime)) {
       clearInterval(loginTimer);
 
-      location.href = 'https://www.osansports.or.kr/yeyak/member/login';
+      location.href = loginURL;
     }
   }, 1000);
 
-  var getURLTimer = window.setInterval(function () {
-    if (document.getElementById('time_area').innerText.includes(getURLTime)) {
-      clearInterval(getURLTimer);
-
-      location.href = listURL;
-    }
-  }, 1000);
-
-  var resvTimer = window.setInterval(function () {
+  let resvTimer = window.setInterval(function () {
     if (document.getElementById('time_area').innerText.includes(resvTime)) {
       clearInterval(resvTimer);
-      location.href = resvURL;
+      if (resvURLArray.length > 0) {
+        openResvWindows();
+      } else {
+        console.error('No ResvURLs Set');
+      }
     }
   }, 300);
 
   console.log('login timer activated: ', loginTime);
   console.log('reservation timer activated: ', resvTime);
-  console.log('getURLtimer activated: ', getURLTime);
-  console.log('resvURL: ', resvURL);
-  console.log('선택 수업: ', title);
+  console.log('centers:', centerArray, 'to change call "addCenter(newCenter)"');
+  console.log(
+    'times:',
+    targetClassArray,
+    'to change call "setTargetClassArray(newArry)"'
+  );
+  console.log('resvURLs: ', resvURLArray);
+}
+
+// 수강신청 처리
+else if (
+  document.getElementsByTagName('legend').length > 0 &&
+  document.getElementsByTagName('legend')[0].innerHTML === '수강 신청'
+) {
+  if (
+    document.getElementsByClassName('txtcenter')[1].children[0].children[1]
+      .innerText !== '신청가능'
+  ) {
+    location.reload();
+  } else {
+    makeResv;
+  }
+}
+
+// 성공
+else if (
+  document.getElementsByClassName('result_box').length > 0 &&
+  document.getElementsByClassName('result_box')[0].children[0].innerText ===
+    '수강신청 접수 완료'
+) {
+  window.close();
 }

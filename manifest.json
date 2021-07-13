@@ -7,10 +7,8 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.osansports.or.kr/yeyak/*",
-        "https://www.osansports.or.kr/yeyak/lecture/detail/index/*",
-        "https://time.navyism.com/?host=*",
-        "https://www.osansports.or.kr/yeyak/message"
+        "https://www.osansports.or.kr/*",
+        "https://time.navyism.com/?host=*"
       ],
       "js": ["contentscript.js"],
       "run_at": "document_idle",
