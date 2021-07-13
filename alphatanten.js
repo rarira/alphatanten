@@ -30,7 +30,6 @@ const loginURL =
 
 console.log('js injected');
 
-let targetClass = 2;
 let centerArray = [SEGYO];
 let targetClassArray = [1, 2];
 let resvURLArray = [];
